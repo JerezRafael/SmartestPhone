@@ -19,7 +19,7 @@ La web tendrá un apartado de notificaciones para que se avise al usuario cuando
 - David Pleite Domingo
   d.pleite@alumnos.urjc.es
   https://github.com/dpleite94
-- Jorge Contretas
+- Jorge Contreras Padilla
   j.contrerasp@alumnos.urjc.es
   https://github.com/jorgecontreras95
 # Trello

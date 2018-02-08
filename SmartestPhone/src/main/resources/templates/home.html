@@ -45,14 +45,11 @@
 			</div>
 			<div class="col">
 				<h1 class="display-4">Resultados</h1>
-				<h5>
-					Marca: 
-					<small><span th:text="${smartphone.marca}"/></small><br/><br/>
-					Modelo: 
-					<small><span th:text="${smartphone.modelo}"/></small><br/><br/>
-					Color: 
-					<small><span th:text="${smartphone.color}"/></small><br/><br/>
-				</h5>
+				<h6>
+					<p>Marca: <small>{{#smartphone}}{{marca}}{{/smartphone}}</small></p>
+					<p>Modelo: <small>{{#smartphone}}{{modelo}}{{/smartphone}}</small></p>
+					<p>Color: <small>{{#smartphone}}{{color}}{{/smartphone}}</small></p>
+				</h6>
 			</div>
 		</div>
 	</div>

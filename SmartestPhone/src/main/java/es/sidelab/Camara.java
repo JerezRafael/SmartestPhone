@@ -12,15 +12,15 @@ public class Camara {
 	private long idCamara;
 	private String marca;
 	private String modelo;
-	private Double megapixeles;
-	private Double selfie;
+	private Integer megapixeles;
+	private Integer selfie;
 	private Boolean dual;
 
 	public Camara() {
 
 	}
 
-	public Camara(String marca, String modelo, Double pixeles, Double selfie, Boolean dual) {
+	public Camara(String marca, String modelo, Integer megapixeles, Integer selfie, Boolean dual) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.megapixeles = megapixeles;
@@ -52,19 +52,19 @@ public class Camara {
 		this.modelo = modelo;
 	}
 
-	public Double getMegapixeles() {
+	public Integer getMegapixeles() {
 		return megapixeles;
 	}
 
-	public void setMegapixeles(Double megapixeles) {
+	public void setMegapixeles(Integer megapixeles) {
 		this.megapixeles = megapixeles;
 	}
 	
-	public Double getSelfie() {
+	public Integer getSelfie() {
 		return selfie;
 	}
 
-	public void setSelfie(Double selfie) {
+	public void setSelfie(Integer selfie) {
 		this.selfie = selfie;
 	}
 	

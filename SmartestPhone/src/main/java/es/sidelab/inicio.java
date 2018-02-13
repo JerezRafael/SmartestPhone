@@ -12,21 +12,16 @@ public class inicio {
 	@Autowired
 	private SmartPhoneRepository repositorioSmartPhone;
 
-	@RequestMapping("/SmartestPhone/buscar")
-	public String buscar(@RequestParam String arg1, @RequestParam String arg2, @RequestParam String accion,
-			Model model) {
-
-		if (accion.equals("Buscar")) {
-			model.addAttribute("smartphone", repositorioSmartPhone.findByMarcaAndModelo(arg1, arg2));
-		}
+	@RequestMapping("/SmartestPhone")
+	public String greetingInicio() {
 
 		return "inicio";
 	}
-	
-	@RequestMapping("/SmartestPhone")
-	public String greeting() {
 
-		return "inicio";
+	@RequestMapping("/SmartestPhone/añadir")
+	public String greetingAñadir() {
+
+		return "añadir";
 	}
 
 }

@@ -10,15 +10,15 @@ public class Dimensiones {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idDimensiones;
-	private Double ancho;
-	private Double alto;
-	private Double largo;
+	private Integer ancho;
+	private Integer alto;
+	private Integer largo;
 
 	public Dimensiones() {
 
 	}
 
-	public Dimensiones(Double ancho, Double alto, Double largo) {
+	public Dimensiones(Integer ancho, Integer alto, Integer largo) {
 		this.ancho = ancho;
 		this.alto = alto;
 		this.largo = largo;
@@ -32,27 +32,27 @@ public class Dimensiones {
 		this.idDimensiones = idDimensiones;
 	}
 	
-	public Double getAncho() {
+	public Integer getAncho() {
 		return ancho;
 	}
 
-	public void setAncho(Double ancho) {
+	public void setAncho(Integer ancho) {
 		this.ancho = ancho;
 	}
 
-	public Double getAlto() {
+	public Integer getAlto() {
 		return alto;
 	}
 
-	public void setAlto(Double alto) {
+	public void setAlto(Integer alto) {
 		this.alto = alto;
 	}
 
-	public Double getLargo() {
+	public Integer getLargo() {
 		return largo;
 	}
 
-	public void setLargo(Double largo) {
+	public void setLargo(Integer largo) {
 		this.largo = largo;
 	}
 

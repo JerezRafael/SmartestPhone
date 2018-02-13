@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+	<title>SmartestPhone - {{#smartphone}}{{marca}}{{/smartphone}} {{#smartphone}}{{modelo}}{{/smartphone}}</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="display-2"><b>SmartestPhone</b></h1>
+			<br/>
+			<h3 class="display-4"><b>{{#smartphone}}{{marca}}{{/smartphone}} {{#smartphone}}{{modelo}}{{/smartphone}}</b></h3>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<ul class="nav nav-tabs nav-justified">
+					<li class="nav-item">
+						<a class="nav-link" href="/SmartestPhone">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/SmartestPhone/añadir">Añadir</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" disabled>Detalles</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tooltip" title="Soon" disabled>En desarrollo</a>
+					</li>
+				</ul>
+				<br />
+			</div>
+		</div>
+		<h1 class="display-4">Detalles</h1>
+		<div class="row">
+			<div class="col">
+					<p><b>Marca: </b>{{#smartphone}}{{marca}}{{/smartphone}}</p>
+					<p><b>Modelo: </b>{{#smartphone}}{{modelo}}{{/smartphone}}</p>
+					<p><b>Color: </b>{{#smartphone}}{{color}}{{/smartphone}}</p>
+					<p><b>Batería: </b>{{#smartphone}}{{bateria}}{{/smartphone}} mAh</p>
+					<p><b>Almacenamiento: </b>{{#smartphone}}{{almacenamiento}}{{/smartphone}} GB</p>
+					<p><b>Ram: </b>{{#smartphone}}{{ram}}{{/smartphone}} GB</p>
+					<p><b>Peso: </b>{{#smartphone}}{{peso}}{{/smartphone}} gr</p>
+			</div>
+			<div class="col">
+				<p>
+					<b>Sistema Operativo:</b><br />
+					Nombre: {{#smartphone}}{{SO.nombre}}{{/smartphone}}<br />
+					Versión: {{#smartphone}}{{SO.version}}{{/smartphone}}
+				</p>
+				<p>
+					<b>Procesador:</b><br />
+					Marca: {{#smartphone}}{{procesador.marca}}{{/smartphone}}<br />
+					Modelo: {{#smartphone}}{{procesador.modelo}}{{/smartphone}}<br />
+					GHz: {{#smartphone}}{{procesador.ghz}}{{/smartphone}}<br />
+					Nucleos: {{#smartphone}}{{procesador.nucleos}}{{/smartphone}}<br />
+				</p>
+			</div>
+			<div class="col">
+				<p>
+					<b>Pantalla:</b><br />
+					Tipo: {{#smartphone}}{{pantalla.tipo}}{{/smartphone}}<br />
+					Resolución: {{#smartphone}}{{pantalla.resolucion}}{{/smartphone}} pixeles<br />
+					Pulgadas: {{#smartphone}}{{pantalla.pulgadas}}{{/smartphone}}"<br />
+				</p>
+				<p>
+					<b>Cámara:</b><br />
+					Marca: {{#smartphone}}{{camara.marca}}{{/smartphone}}<br />
+					Modelo: {{#smartphone}}{{camara.modelo}}{{/smartphone}}<br />
+					Megapixeles: {{#smartphone}}{{camara.megapixeles}}{{/smartphone}} Mpx<br />
+					Selfie: {{#smartphone}}{{camara.selfie}}{{/smartphone}} Mpx<br />
+				</p>
+			</div>
+			<div class="col">
+				<p>
+					<b>Dimensiones:</b><br />
+					Ancho: {{#smartphone}}{{dimensiones.ancho}}{{/smartphone}} mm<br />
+					Alto: {{#smartphone}}{{dimensiones.alto}}{{/smartphone}} mm<br />
+					Largo: {{#smartphone}}{{dimensiones.largo}}{{/smartphone}} mm<br />
+				</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function(){
+    	$('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
+</body>
+</html>

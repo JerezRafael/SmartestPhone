@@ -11,13 +11,13 @@ public class SO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idSO;
 	private String nombre;
-	private Double version;
+	private Integer version;
 
 	public SO() {
 
 	}
 
-	public SO(String nombre, Double version) {
+	public SO(String nombre, Integer version) {
 		this.nombre = nombre;
 		this.version = version;
 	}
@@ -38,11 +38,11 @@ public class SO {
 		this.nombre = nombre;
 	}
 
-	public Double getVersion() {
+	public Integer getVersion() {
 		return version;
 	}
 
-	public void setVersion(Double version) {
+	public void setVersion(Integer version) {
 		this.version = version;
 	}
 

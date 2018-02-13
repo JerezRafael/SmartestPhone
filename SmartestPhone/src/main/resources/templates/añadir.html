@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <head>
-<title>SmartestPhone - Añadir nuevo smartphone</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-	integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-	integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-	crossorigin="anonymous"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-	crossorigin="anonymous"></script>
+	<title>SmartestPhone - Añadir nuevo smartphone</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -34,61 +23,65 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<ul class="nav nav-tabs nav-justified">
-					<li class="nav-item"><a class="nav-link" href="/SmartestPhone">Inicio</a>
+					<li class="nav-item">
+						<a class="nav-link" href="/SmartestPhone">Inicio</a>
 					</li>
-					<li class="nav-item"><a class="nav-link active"
-						href="/SmartestPhone/añadir">Añadir</a></li>
-					<li class="nav-item"><a class="nav-link disabled" href=""
-						disabled>En desarrollo</a></li>
-					<li class="nav-item"><a class="nav-link disabled" href=""
-						disabled>En desarrollo</a></li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/SmartestPhone/añadir">Añadir</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" disabled>Detalles</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tooltip" title="Soon" disabled>En desarrollo</a>
+					</li>
 				</ul>
 				<br />
 			</div>
 		</div>
 		<h1 class="display-4">Añadir</h1>
-		<form class="form-inline" method="post"
-			action="/SmartestPhone/añadir/solicitud">
+		<form class="form-inline" method="post" action="/SmartestPhone/añadir/solicitud">
 			<div class="row">
 				<div class="col-sm-3">
 					<p>
-						<b>Marca</b><br /> <input type="text" name="marca"
-							class="form-control" required />
+						<b>Marca</b><br /> 
+						<input type="text" name="marca" class="form-control" required />
 					</p>
 					<p>
-						<b>Modelo</b><br /> <input type="text" name="modelo"
-							class="form-control" required />
+						<b>Modelo</b><br /> 
+						<input type="text" name="modelo" class="form-control" required />
 					</p>
 					<p>
-						<b>Color</b><br /> <input type="text" name="color"
-							class="form-control" required />
+						<b>Color</b><br /> 
+						<input type="text" name="color" class="form-control" required />
 					</p>
 					<p>
-						<b>Batería</b><br /> <input type="number" name="bateria"
-							class="form-control" maxlength="4" min="1" required />
+						<b>Batería</b><br /> 
+						<input type="number" name="bateria" class="form-control" maxlength="4" min="1" required />
 					</p>
 					<p>
-						<b>Almacenamiento</b><br /> <input type="number"
-							name="almacenamiento" class="form-control" maxlength="3" min="1"
-							required />
+						<b>Almacenamiento</b><br /> 
+						<input type="number" name="almacenamiento" class="form-control" maxlength="3" min="1" required />
 					</p>
 					<p>
-						<b>RAM</b><br /> <input type="number" name="ram"
-							class="form-control" maxlength="2" min="1" required />
+						<b>RAM</b><br /> 
+						<input type="number" name="ram" class="form-control" maxlength="2" min="1" required />
 					</p>
 					<p>
-						<b>Peso</b><br /> <input type="number" name="peso"
-							class="form-control" maxlength="3" min="1" required />
+						<b>Peso</b><br /> 
+						<input type="number" name="peso" class="form-control" maxlength="3" min="1" required />
 					</p>
 				</div>
 				<div class="col-sm-3">
 					<p>
-						<b>Sistema Operativo:</b> </br> Nombre: <input type="text"
-							name="nombre" class="form-control" required /> Version: </br> <input
-							type="number" name="version" class="form-control" maxlength="1"
-							min="3" max="8" required />
+						<b>Sistema Operativo:</b> </br> 
+						Nombre: 
+						<input type="text" name="nombre" class="form-control" required /> 
+						Version: </br> 
+						<input type="number" name="version" class="form-control" maxlength="1" min="3" max="12" required />
 					</p>
 					<p>
+<<<<<<< Upstream, based on origin/master
 						<b>Cámara:</b> </br> Marca: <input type="text" name="marcacamara"
 							class="form-control" required /> Modelo: <input type="text"
 							name="modelocamara" class="form-control" required />
@@ -96,43 +89,59 @@
 							class="form-control" maxlength="2" min="1" required /> Selfie: <input
 							type="number" name="selfie" class="form-control" maxlength="2"
 							min="1" required /> 
+=======
+						<b>Cámara:</b> </br> 
+						Marca: 
+						<input type="text" name="marcacamara" class="form-control" required /> 
+						Modelo: 
+						<input type="text" name="modelocamara" class="form-control" required />
+						Megapixeles: 
+						<input type="number" name="megapixeles" class="form-control" maxlength="2" min="1" required /> 
+						Selfie: <input type="number" name="selfie" class="form-control" maxlength="2" min="1" required /> 
+>>>>>>> d07d8d3 Página de detalles creada y correcciones
 					</p>
 				</div>
 				<div class="col-sm-3">
 					<p>
-						<b>Pantalla</b> </br> Tipo: <input type="text" name="tipo"
-							class="form-control" required /> Pulgadas:<br /> <input
-							type="number" name="pulgadas" class="form-control" step=".1"
-							maxlength="4" min="1" max="7" required /><br /> Resolucion:<br />
-						<input type="number" name="resolucion1" class="form-control"
-							size="2" maxlength="4" min="1" max="2160" required /> x <input
-							type="number" name="resolucion2" class="form-control" size="2"
-							maxlength="4" min="1" max="4096" required />
+						<b>Pantalla</b> </br> 
+						Tipo: <input type="text" name="tipo" class="form-control" required /> 
+						Pulgadas:<br /> 
+						<input type="number" name="pulgadas" class="form-control" step=".1" maxlength="4" min="1" max="7" required /><br /> 
+						Resolucion:<br />
+						<input type="number" name="resolucion1" class="form-control" size="2" maxlength="4" min="1" max="2160" required /> 
+						x 
+						<input type="number" name="resolucion2" class="form-control" size="2" maxlength="4" min="1" max="4096" required />
 					</p>
 					<p>
-						<b>CPU</b> </br> Marca: <input type="text" name="marcacpu"
-							class="form-control" required /> Modelo: <input type="text"
-							name="modelocpu" class="form-control" required /> GHz: <input
-							type="number" name="ghz" class="form-control" step=".1"
-							maxlength="3" min="1" required /> Nucleos:<br /> <input
-							type="number" name="nucleos" class="form-control" maxlength="1"
-							min="1" max="8" required />
+						<b>CPU</b> </br> 
+						Marca: 
+						<input type="text" name="marcacpu" class="form-control" required /> 
+						Modelo: 
+						<input type="text" name="modelocpu" class="form-control" required /> 
+						GHz: 
+						<input type="number" name="ghz" class="form-control" step=".1" maxlength="3" min="1" required /> 
+						Nucleos:<br /> 
+						<input type="number" name="nucleos" class="form-control" maxlength="1" min="1" max="8" required />
 					</p>
 				</div>
 				<div class="col-sm-3">
-					<b>Dimensiones</b><br /> <input type="number" name="ancho"
-						class="form-control" size="4" step=".01" maxlength="6" min="1"
-						max="400" required /> Alto <input type="number" name="alto"
-						class="form-control" size="2" step=".01" maxlength="6" min="1"
-						max="400" required /> Ancho <input type="number" name="largo"
-						class="form-control" size="1" step=".01" maxlength="6" min="1"
-						max="400" required /> Largo
+					<b>Dimensiones</b><br /> 
+					<input type="number" name="ancho" class="form-control" size="4" step=".01" maxlength="6" min="1" max="400" required /> 
+					Alto 
+					<input type="number" name="alto" class="form-control" size="2" step=".01" maxlength="6" min="1" max="400" required /> 
+					Ancho 
+					<input type="number" name="largo" class="form-control" size="1" step=".01" maxlength="6" min="1" max="400" required /> 
+					Largo
 				</div>
-				<input type="submit" name="accion" value="Añadir"
-					class="btn btn-success" />
+				<input type="submit" value="Añadir" class="btn btn-success" />
 			</div>
 		</form>
 	</div>
 	<br />
+	<script>
+		$(document).ready(function(){
+    	$('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
 </body>
 </html>

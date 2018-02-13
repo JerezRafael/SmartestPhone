@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <head>
-<title>SmartestPhone - Inicio</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-	integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-	integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-	crossorigin="anonymous"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-	crossorigin="anonymous"></script>
-
+	<title>SmartestPhone - Inicio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
@@ -34,14 +22,18 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<ul class="nav nav-tabs nav-justified">
-					<li class="nav-item"><a class="nav-link active"
-						href="/SmartestPhone">Inicio</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/SmartestPhone/añadir">Añadir</a></li>
-					<li class="nav-item"><a class="nav-link disabled" disabled>En
-							desarrollo</a></li>
-					<li class="nav-item"><a class="nav-link disabled" disabled>En
-							desarrollo</a></li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/SmartestPhone">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/SmartestPhone/añadir">Añadir</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" disabled>Detalles</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tooltip" title="Soon" disabled>En desarrollo</a>
+					</li>
 				</ul>
 				<br />
 			</div>
@@ -51,11 +43,11 @@
 				<h1 class="display-4">Consultar</h1>
 				<fieldset>
 					<form method="get" action="/SmartestPhone/buscar">
-						Marca<br /> <input type="text" name="arg1" class="form-control"
-							required /><br /> Modelo<br /> <input type="text" name="arg2"
-							class="form-control" required /><br /> <input type="hidden"
-							name="arg3" /> <input type="submit" name="accion" value="Buscar"
-							class="btn btn-info" />
+						Marca<br />
+						<input type="text" name="marca" class="form-control" required /><br /> 
+						Modelo<br /> 
+						<input type="text" name="modelo" class="form-control" required /><br /> 
+						<input type="submit" value="Buscar" class="btn btn-info" />
 					</form>
 				</fieldset>
 			</div>
@@ -63,12 +55,11 @@
 			<div class="col">
 				<h1 class="display-4">Añadir</h1>
 				<p>
-					¿No encuentras tu smartphone?<br /> Añádelo a nuestra base de
-					datos!
+					¿No encuentras tu smartphone?<br /> 
+					Añádelo a nuestra base de datos!
 				</p>
 				<p>
-					<a href="/SmartestPhone/añadir" class="btn btn-primary"
-						role="button">Añadir</a>
+					<a href="/SmartestPhone/añadir" class="btn btn-primary" role="button">Añadir</a>
 				</p>
 			</div>
 		</div>
@@ -86,9 +77,15 @@
 					<p>
 						Color: <small>{{#smartphone}}{{color}}{{/smartphone}}</small>
 					</p>
+					<a href="/SmartestPhone/detalles?id={{#smartphone}}{{idSmartPhone}}{{/smartphone}}" class="btn btn-success" role="button">Ver detalles</a>
 				</h6>
 			</div>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function(){
+    	$('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
 </body>
 </html>

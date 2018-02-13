@@ -12,17 +12,17 @@ public class Procesador {
 	private long idProcesador;
 	private String marca;
 	private String modelo;
-	private Double GHz;
+	private Double ghz;
 	private Integer nucleos;
 
 	public Procesador() {
 
 	}
 
-	public Procesador(String marca, String modelo, Double GHz, Integer nucleos) {
+	public Procesador(String marca, String modelo, Double ghz, Integer nucleos) {
 		this.marca = marca;
 		this.modelo = modelo;
-		this.GHz = GHz;
+		this.ghz = ghz;
 		this.nucleos = nucleos;
 	}
 
@@ -50,12 +50,12 @@ public class Procesador {
 		this.modelo = modelo;
 	}
 
-	public Double getGHz() {
-		return GHz;
+	public Double getGhz() {
+		return ghz;
 	}
 
-	public void setGHz(Double GHz) {
-		this.GHz = GHz;
+	public void setGhz(Double ghz) {
+		this.ghz = ghz;
 	}
 	
 	public Integer getNucleos() {
@@ -68,7 +68,7 @@ public class Procesador {
 
 	@Override
 	public String toString() {
-		return "Procesador [marca=" + marca + ", modelo=" + modelo + ", GHz=" + GHz + ", nucleos=" + nucleos + "]";
+		return "Procesador [marca=" + marca + ", modelo=" + modelo + ", GHz=" + ghz + ", nucleos=" + nucleos + "]";
 	}
 
 }

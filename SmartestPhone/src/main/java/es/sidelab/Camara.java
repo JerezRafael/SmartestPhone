@@ -14,24 +14,16 @@ public class Camara {
 	private String modelo;
 	private Integer megapixeles;
 	private Integer selfie;
-<<<<<<< Upstream, based on origin/master
-	
-=======
->>>>>>> d07d8d3 Página de detalles creada y correcciones
 
 	public Camara() {
 
 	}
 
-	public Camara(String marca, String modelo, Integer megapixeles, Integer selfie) {
+	public Camara(String marca, String modelo, Integer megapixeles, Integer selfie, Boolean dual) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.megapixeles = megapixeles;
 		this.selfie = selfie;
-<<<<<<< Upstream, based on origin/master
-		
-=======
->>>>>>> d07d8d3 Página de detalles creada y correcciones
 	}
 
 	public long getIdCamara() {
@@ -73,19 +65,10 @@ public class Camara {
 	public void setSelfie(Integer selfie) {
 		this.selfie = selfie;
 	}
-<<<<<<< Upstream, based on origin/master
-	
-
-=======
->>>>>>> d07d8d3 Página de detalles creada y correcciones
 
 	@Override
 	public String toString() {
-<<<<<<< Upstream, based on origin/master
-		return "Camara [marca=" + marca + ", modelo=" + modelo + ", megapixeles=" + megapixeles + ", selfie=" + selfie  + "]";
-=======
 		return "Camara [marca=" + marca + ", modelo=" + modelo + ", megapixeles=" + megapixeles + ", selfie=" + selfie + "]";
->>>>>>> d07d8d3 Página de detalles creada y correcciones
 	}
 
 }

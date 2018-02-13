@@ -14,18 +14,18 @@ public class Camara {
 	private String modelo;
 	private Integer megapixeles;
 	private Integer selfie;
-	private Boolean dual;
+	
 
 	public Camara() {
 
 	}
 
-	public Camara(String marca, String modelo, Integer megapixeles, Integer selfie, Boolean dual) {
+	public Camara(String marca, String modelo, Integer megapixeles, Integer selfie) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.megapixeles = megapixeles;
 		this.selfie = selfie;
-		this.dual = dual;
+		
 	}
 
 	public long getIdCamara() {
@@ -68,17 +68,11 @@ public class Camara {
 		this.selfie = selfie;
 	}
 	
-	public Boolean getDual() {
-		return dual;
-	}
 
-	public void setDual(Boolean dual) {
-		this.dual = dual;
-	}
 
 	@Override
 	public String toString() {
-		return "Camara [marca=" + marca + ", modelo=" + modelo + ", megapixeles=" + megapixeles + ", selfie=" + selfie + ", dual=" + dual + "]";
+		return "Camara [marca=" + marca + ", modelo=" + modelo + ", megapixeles=" + megapixeles + ", selfie=" + selfie  + "]";
 	}
 
 }

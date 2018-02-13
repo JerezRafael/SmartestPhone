@@ -23,7 +23,7 @@ public class añadir {
 			@RequestParam Integer bateria, @RequestParam Integer almacenamiento, @RequestParam Integer ram,
 			@RequestParam Integer peso, @RequestParam String nombre, @RequestParam Double version,
 			@RequestParam String marcacamara, @RequestParam String modelocamara, @RequestParam Integer megapixeles,
-			@RequestParam Integer selfie, @RequestParam Boolean dual, @RequestParam String tipo,
+			@RequestParam Integer selfie, @RequestParam String tipo,
 			@RequestParam Double pulgadas, @RequestParam Integer resolucion1, @RequestParam Integer resolucion2,
 			@RequestParam String marcacpu, @RequestParam String modelocpu, @RequestParam Double ghz,
 			@RequestParam Integer nucleos, @RequestParam Double ancho, @RequestParam Double alto,
@@ -51,7 +51,7 @@ public class añadir {
 			 camara.setModelo(modelocamara);
 			 camara.setMegapixeles(megapixeles);
 			 camara.setSelfie(selfie);
-			 camara.setDual(dual);
+			 
 			
 			 Dimensiones dimensiones = new Dimensiones();
 			 dimensiones.setAncho(ancho);

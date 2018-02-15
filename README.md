@@ -42,3 +42,17 @@ Tenemos dos controladores: el de inicio que utiliza de templates inicio.html y a
 ![Diagrama E/R](https://lh3.googleusercontent.com/-dm_7BsL0vrM/WoVKgM3pIdI/AAAAAAAALjY/iNiu14snpjYyrj_QzPVzPuwkGgD5D90cACJoC/w663-h450-n-rw/diagER.jpg)
 
 Existe una entidad principal que es SmartPhone, que tiene una cámara, un SO, un procesador, una pantalla y unas dimensiones.
+
+## Páginas web:
+
+### Inicio
+![inicio](https://i.imgur.com/hLxE7cR.png)
+Es la página inicial, desde esta se puede acceder a todas las demás, podemos buscar un smartphone y acceder a la web de detalles y podemos tambien ir a añadir un nuevo smartphone
+
+### Añadir
+![añadir](https://i.imgur.com/ekcQoGq.png)
+Esta web es unicamente para añadir un smartphone nuevo, una vez puestas todas las caracteristicas se puede añadir y ya volver a la página de inicio. En el futuro se podrá ir directamente a los detalles del smartphone añadido.
+
+### Detalles
+![detalles](https://i.imgur.com/VzCzflY.png)
+En esta web se ven todas las características de un smartphone. Proximamente se podrán editar las características del smartphone que estamos visualizando.

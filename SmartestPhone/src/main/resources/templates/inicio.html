@@ -29,10 +29,10 @@
 						<a class="nav-link" href="/SmartestPhone/añadir">Añadir</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" disabled>Detalles</a>
+						<a class="nav-link disabled" data-toggle="tooltip" title="Accede buscandolo mas abajo" disabled>Detalles</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" data-toggle="tooltip" title="Soon" disabled>En desarrollo</a>
+						<a class="nav-link disabled" data-toggle="tooltip" title="Accede viendo los detalles del smartphone" disabled>Noticias</a>
 					</li>
 				</ul>
 				<br />
@@ -40,14 +40,14 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-4">
-				<h1 class="display-4">Consultar</h1>
+				<h1 class="display-4">Buscar</h1>
 				<fieldset>
 					<form method="get" action="/SmartestPhone/buscar">
 						Marca<br />
 						<input type="text" name="marca" class="form-control" required /><br /> 
 						Modelo<br /> 
 						<input type="text" name="modelo" class="form-control" required /><br /> 
-						<input type="submit" value="Buscar" class="btn btn-info" />
+						<input type="submit" value="Buscar" class="btn btn-info"/>
 					</form>
 				</fieldset>
 			</div>
@@ -67,18 +67,23 @@
 		<div class="row">
 			<div class="col">
 				<h1 class="display-4">Resultados</h1>
-				<h6>
-					<p>
-						Marca: <small>{{#smartphone}}{{marca}}{{/smartphone}}</small>
-					</p>
-					<p>
-						Modelo: <small>{{#smartphone}}{{modelo}}{{/smartphone}}</small>
-					</p>
-					<p>
-						Color: <small>{{#smartphone}}{{color}}{{/smartphone}}</small>
-					</p>
-					<a href="/SmartestPhone/detalles?id={{#smartphone}}{{idSmartPhone}}{{/smartphone}}" class="btn btn-success" role="button">Ver detalles</a>
-				</h6>
+				{{#smartphone}}
+					<h6>
+						<p>
+							Marca: <small>{{marca}}</small>
+						</p>
+						<p>
+							Modelo: <small>{{modelo}}</small>
+						</p>
+						<p>
+							Color: <small>{{color}}</small>
+						</p>
+						<a href="/SmartestPhone/detalles?id={{#smartphone}}{{idSmartPhone}}{{/smartphone}}" class="btn btn-success" role="button">Ver detalles</a>
+					</h6>
+				{{/smartphone}}
+				{{^smartphone}}
+					<h5>No hay resultados</h5>
+				{{/smartphone}}
 			</div>
 		</div>
 	</div>

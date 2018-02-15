@@ -30,10 +30,10 @@
 						<a class="nav-link active" href="/SmartestPhone/añadir">Añadir</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" disabled>Detalles</a>
+						<a class="nav-link disabled" data-toggle="tooltip" title="Accede buscandolo en inicio" disabled>Detalles</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" data-toggle="tooltip" title="Soon" disabled>En desarrollo</a>
+						<a class="nav-link disabled" data-toggle="tooltip" title="Accede viendo los detalles del smartphone" disabled>Noticias</a>
 					</li>
 				</ul>
 				<br />
@@ -81,15 +81,6 @@
 						<input type="number" name="version" class="form-control" maxlength="1" min="3" max="12" required />
 					</p>
 					<p>
-<<<<<<< Upstream, based on origin/master
-						<b>Cámara:</b> </br> Marca: <input type="text" name="marcacamara"
-							class="form-control" required /> Modelo: <input type="text"
-							name="modelocamara" class="form-control" required />
-						Megapixeles: <input type="number" name="megapixeles"
-							class="form-control" maxlength="2" min="1" required /> Selfie: <input
-							type="number" name="selfie" class="form-control" maxlength="2"
-							min="1" required /> 
-=======
 						<b>Cámara:</b> </br> 
 						Marca: 
 						<input type="text" name="marcacamara" class="form-control" required /> 
@@ -97,8 +88,7 @@
 						<input type="text" name="modelocamara" class="form-control" required />
 						Megapixeles: 
 						<input type="number" name="megapixeles" class="form-control" maxlength="2" min="1" required /> 
-						Selfie: <input type="number" name="selfie" class="form-control" maxlength="2" min="1" required /> 
->>>>>>> d07d8d3 Página de detalles creada y correcciones
+						Selfie: <input type="number" name="selfie" class="form-control" maxlength="2" min="1" required />
 					</p>
 				</div>
 				<div class="col-sm-3">
@@ -138,10 +128,5 @@
 		</form>
 	</div>
 	<br />
-	<script>
-		$(document).ready(function(){
-    	$('[data-toggle="tooltip"]').tooltip();   
-		});
-	</script>
 </body>
 </html>

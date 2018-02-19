@@ -33,7 +33,7 @@
 						<a class="nav-link disabled" data-toggle="tooltip" title="Accede buscandolo en inicio" disabled>Detalles</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" data-toggle="tooltip" title="Accede viendo los detalles del smartphone" disabled>Noticias</a>
+						<a class="nav-link" href="/SmartestPhone/noticias">Noticias</a>
 					</li>
 				</ul>
 				<br />
@@ -103,7 +103,7 @@
 						<input type="number" name="resolucion2" class="form-control" size="2" maxlength="4" min="1" max="4096" required />
 					</p>
 					<p>
-						<b>CPU</b> </br> 
+						<b>Procesador</b> </br> 
 						Marca: 
 						<input type="text" name="marcacpu" class="form-control" required /> 
 						Modelo: 
@@ -127,6 +127,11 @@
 			</div>
 		</form>
 	</div>
+	<script>
+		$(document).ready(function(){
+    	$('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
 	<br />
 </body>
 </html>

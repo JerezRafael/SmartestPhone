@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<head>
+	<title>SmartestPhone - Modificar {{#smartphone}}{{marca}} {{modelo}}{{/smartphone}}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="display-2">
+				<b>SmartestPhone</b>
+			</h1>
+			<br />
+			<h3 class="display-4">
+				<b>Modificar {{#smartphone}}{{marca}} {{modelo}}{{/smartphone}}</b>
+			</h3>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<ul class="nav nav-tabs nav-justified">
+					<li class="nav-item">
+						<a class="nav-link" href="/SmartestPhone">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/SmartestPhone/añadir">Añadir</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tooltip" title="Accede buscandolo en inicio" disabled>Detalles</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/SmartestPhone/noticias">Noticias</a>
+					</li>
+				</ul>
+				<br />
+			</div>
+		</div>
+		{{#smartphone}}
+			<h1 class="display-4">Modificar {{#smartphone}}{{marca}} {{modelo}}{{/smartphone}}</h1>
+			<form class="form-inline" method="post" action="/SmartestPhone/modificar/solicitud">
+				<div class="row">
+					<div class="col-sm-3">
+						<p>
+							<b>Marca</b><br /> 
+							<input type="text" name="marca" value="{{marca}}" class="form-control" required />
+						</p>
+						<p>
+							<b>Modelo</b><br /> 
+							<input type="text" name="modelo" value="{{modelo}}" class="form-control" required />
+						</p>
+						<p>
+							<b>Color</b><br /> 
+							<input type="text" name="color" value="{{color}}" class="form-control" required />
+						</p>
+						<p>
+							<b>Batería</b><br /> 
+							<input type="number" name="bateria" value="{{bateria}}" class="form-control" maxlength="4" min="1" required />
+						</p>
+						<p>
+							<b>Almacenamiento</b><br /> 
+							<input type="number" name="almacenamiento" value="{{almacenamiento}}" class="form-control" maxlength="3" min="1" required />
+						</p>
+						<p>
+							<b>RAM</b><br /> 
+							<input type="number" name="ram" value="{{ram}}" class="form-control" maxlength="2" min="1" required />
+						</p>
+						<p>
+							<b>Peso</b><br /> 
+							<input type="number" name="peso" value="{{peso}}" class="form-control" maxlength="3" min="1" required />
+						</p>
+					</div>
+					<div class="col-sm-3">
+						<p>
+							<b>Sistema Operativo:</b> </br> 
+							Nombre: 
+							<input type="text" name="nombre" value="{{SO.nombre}}" class="form-control" required /> 
+							Version: </br> 
+							<input type="number" name="version" value="{{SO.version}}" class="form-control" maxlength="1" min="3" max="12" required />
+						</p>
+						<p>
+							<b>Cámara:</b> </br> 
+							Marca: 
+							<input type="text" name="marcacamara" value="{{camara.marca}}" class="form-control" required /> 
+							Modelo: 
+							<input type="text" name="modelocamara" value="{{camara.modelo}}" class="form-control" required />
+							Megapixeles: 
+							<input type="number" name="megapixeles" value="{{camara.megapixeles}}" class="form-control" maxlength="2" min="1" required /> 
+							Selfie: <input type="number" name="selfie" value="{{camara.selfie}}" class="form-control" maxlength="2" min="1" required />
+						</p>
+					</div>
+					<div class="col-sm-3">
+						<p>
+							<b>Pantalla</b> </br> 
+							Tipo: <input type="text" name="tipo" value="{{pantalla.tipo}}" class="form-control" required /> 
+							Pulgadas:<br /> 
+							<input type="number" name="pulgadas" value="{{pantalla.pulgadas}}" class="form-control" step=".1" maxlength="4" min="1" max="7" required /><br /> 
+							Resolucion:<br />
+							<input type="number" name="resolucion1" value="{{pantalla.resolucion1}}" class="form-control" size="2" maxlength="4" min="1" max="2160" required /> 
+							x 
+							<input type="number" name="resolucion2" value="{{pantalla.resolucion2}}" class="form-control" size="2" maxlength="4" min="1" max="4096" required />
+						</p>
+						<p>
+							<b>Procesador</b> </br> 
+							Marca: 
+							<input type="text" name="marcacpu" value="{{procesador.marca}}" class="form-control" required /> 
+							Modelo: 
+							<input type="text" name="modelocpu" value="{{procesador.modelo}}" class="form-control" required /> 
+							GHz: 
+							<input type="number" name="ghz" value="{{procesador.ghz}}" class="form-control" step=".1" maxlength="3" min="1" required /> 
+							Nucleos:<br /> 
+							<input type="number" name="nucleos" value="{{procesador.nucleos}}" class="form-control" maxlength="1" min="1" max="8" required />
+						</p>
+					</div>
+					<div class="col-sm-3">
+						<b>Dimensiones</b><br /> 
+						<input type="number" name="ancho" value="{{dimensiones.ancho}}" class="form-control" size="4" step=".01" maxlength="6" min="1" max="400" required /> 
+						Alto 
+						<input type="number" name="alto" value="{{dimensiones.alto}}" class="form-control" size="2" step=".01" maxlength="6" min="1" max="400" required /> 
+						Ancho 
+						<input type="number" name="largo" value="{{dimensiones.largo}}" class="form-control" size="1" step=".01" maxlength="6" min="1" max="400" required /> 
+						Largo
+					</div>
+					<input type="submit" value="Modificar" class="btn btn-warning" />
+				</div>
+			</form>
+		{{/smartphone}}
+		{{^smartphone}}
+			<h3>Cambios guardados</h3>
+		{{/smartphone}}
+	</div>
+	<script>
+		$(document).ready(function(){
+    	$('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
+	<br />
+</body>
+</html>

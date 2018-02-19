@@ -11,16 +11,18 @@ public class Pantalla {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idPantalla;
 	private String tipo;
-	private String resolucion;
+	private Integer resolucion1;
+	private Integer resolucion2;
 	private Double pulgadas;
 
 	public Pantalla() {
 
 	}
 
-	public Pantalla(String tipo, String resolucion, Double pulgadas) {
+	public Pantalla(String tipo, Integer ancho, Integer alto, Double pulgadas) {
 		this.tipo = tipo;
-		this.resolucion = resolucion;
+		this.resolucion1 = ancho;
+		this.resolucion2 = alto;
 		this.pulgadas = pulgadas;
 	}
 
@@ -40,12 +42,20 @@ public class Pantalla {
 		this.tipo = tipo;
 	}
 
-	public String getResolucion() {
-		return resolucion;
+	public Integer getResolucion1() {
+		return resolucion1;
 	}
 
-	public void setResolucion(Integer res1, Integer res2) {
-		this.resolucion = res1 + "x" + res2;
+	public void setResolucion1(Integer resolucion1) {
+		this.resolucion1 = resolucion1;
+	}
+
+	public Integer getResolucion2() {
+		return resolucion2;
+	}
+
+	public void setResolucion2(Integer resolucion2) {
+		this.resolucion2 = resolucion2;
 	}
 	
 	public Double getPulgadas() {
@@ -58,6 +68,6 @@ public class Pantalla {
 
 	@Override
 	public String toString() {
-		return "Pantalla [tipo=" + tipo + ", resolucion=" + resolucion + ", pulgadas=" + pulgadas + "]";
+		return "Pantalla [tipo=" + tipo + ", resolucion=" + resolucion1 + "x" + resolucion2 + ", pulgadas=" + pulgadas + "]";
 	}
 }

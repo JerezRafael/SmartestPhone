@@ -65,7 +65,7 @@
 					<p>
 						<b>Pantalla:</b><br />
 						Tipo: {{pantalla.tipo}}<br />
-						Resolución: {{pantalla.resolucion}} pixeles<br />
+						Resolución: {{pantalla.resolucion1}}x{{pantalla.resolucion2}} pixeles<br />
 						Pulgadas: {{pantalla.pulgadas}}"<br />
 					</p>
 					<p>
@@ -84,12 +84,15 @@
 						Largo: {{dimensiones.largo}} mm<br />
 					</p>
 					<p>
-						<button type="button" class="btn btn-warning">Modificar</button>
+						<a href="/SmartestPhone/modificar?id={{#smartphone}}{{idSmartPhone}}{{/smartphone}}" class="btn btn-warning" role="button">Modificar</a>
 					</p>
 					<p>
 						<a href="/SmartestPhone/noticias?id={{#smartphone}}{{idSmartPhone}}{{/smartphone}}" class="btn btn-info" role="button">Ver noticias</a>
 					</p>
 				</div>
+			{{/smartphone}}
+			{{^smartphone}}
+				Algo ha ido mal, vuelve a inicio e intentalo de nuevo.
 			{{/smartphone}}
 		</div>
 	</div>

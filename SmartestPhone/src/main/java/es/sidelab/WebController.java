@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class inicio {
+public class WebController {
 
 	@RequestMapping("/SmartestPhone")
 	public String greetingInicio() {
@@ -16,12 +16,6 @@ public class inicio {
 	public String greetingAñadir() {
 
 		return "añadir";
-	}
-	
-	@RequestMapping("/SmartestPhone/noticias")
-	public String greetingNoticias() {
-
-		return "noticias";
 	}
 
 }

@@ -36,8 +36,8 @@
 			</div>
 		</div>
 		<h1 class="display-4">Detalles</h1>
-		<div class="row">
-			{{#smartphone}}
+		{{#smartphone}}
+			<div class="row">
 				<div class="col">
 						<p><b>Marca: </b>{{marca}}</p>
 						<p><b>Modelo: </b>{{modelo}}</p>
@@ -86,15 +86,18 @@
 					<p>
 						<a href="/SmartestPhone/modificar?id={{#smartphone}}{{idSmartPhone}}{{/smartphone}}" class="btn btn-warning" role="button">Modificar</a>
 					</p>
-					<p>
-						<a href="/SmartestPhone/noticias?id={{#smartphone}}{{idSmartPhone}}{{/smartphone}}" class="btn btn-info" role="button">Ver noticias</a>
-					</p>
 				</div>
-			{{/smartphone}}
-			{{^smartphone}}
-				Algo ha ido mal, vuelve a inicio e intentalo de nuevo.
-			{{/smartphone}}
-		</div>
+			</div>
+			<div class="row">
+				<h1 class="display-4">Noticias</h1>
+				<div class="col">
+					
+				</div>
+			</div>
+		{{/smartphone}}
+		{{^smartphone}}
+			Algo ha ido mal, vuelve a inicio e intentalo de nuevo.
+		{{/smartphone}}
 	</div>
 	<script>
 		$(document).ready(function(){

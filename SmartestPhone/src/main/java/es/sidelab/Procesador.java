@@ -14,9 +14,9 @@ public class Procesador {
 	private String modelo;
 	private Double ghz;
 	private Integer nucleos;
-
+	
 	public Procesador() {
-
+		
 	}
 
 	public Procesador(String marca, String modelo, Double ghz, Integer nucleos) {

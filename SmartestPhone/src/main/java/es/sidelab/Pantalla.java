@@ -14,15 +14,15 @@ public class Pantalla {
 	private Integer resolucion1;
 	private Integer resolucion2;
 	private Double pulgadas;
-
+	
 	public Pantalla() {
-
+		
 	}
 
-	public Pantalla(String tipo, Integer ancho, Integer alto, Double pulgadas) {
+	public Pantalla(String tipo, Integer resolucion1, Integer resolucion2, Double pulgadas) {
 		this.tipo = tipo;
-		this.resolucion1 = ancho;
-		this.resolucion2 = alto;
+		this.resolucion1 = resolucion1;
+		this.resolucion2 = resolucion2;
 		this.pulgadas = pulgadas;
 	}
 

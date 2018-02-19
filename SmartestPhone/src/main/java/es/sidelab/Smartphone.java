@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class SmartPhone {
+public class Smartphone {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,13 +30,13 @@ public class SmartPhone {
 	private Pantalla pantalla;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Procesador procesador;
-
-	public SmartPhone() {
-
+	
+	public Smartphone() {
+		
 	}
 
-	public SmartPhone(String marca, String modelo, String color, Integer bateria, 
-			Integer almacenamiento, Integer ram, Integer peso) {
+	public Smartphone(String marca, String modelo, String color, Integer bateria, 
+			Integer almacenamiento, Integer ram, Integer peso, SO so, Camara camara, Dimensiones dimensiones, Pantalla pantalla, Procesador procesador) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.color = color;
@@ -44,6 +44,11 @@ public class SmartPhone {
 		this.almacenamiento = almacenamiento;
 		this.ram = ram;
 		this.peso = peso;
+		this.so = so;
+		this.camara = camara;
+		this.dimensiones = dimensiones;
+		this.pantalla = pantalla;
+		this.procesador = procesador;
 	}
 
 	public long getIdSmartPhone() {

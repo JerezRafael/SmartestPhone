@@ -13,9 +13,9 @@ public class Dimensiones {
 	private Integer ancho;
 	private Integer alto;
 	private Integer largo;
-
+	
 	public Dimensiones() {
-
+		
 	}
 
 	public Dimensiones(Integer ancho, Integer alto, Integer largo) {

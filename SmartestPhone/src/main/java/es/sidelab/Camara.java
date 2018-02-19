@@ -14,12 +14,12 @@ public class Camara {
 	private String modelo;
 	private Integer megapixeles;
 	private Integer selfie;
-
+	
 	public Camara() {
-
+		
 	}
 
-	public Camara(String marca, String modelo, Integer megapixeles, Integer selfie, Boolean dual) {
+	public Camara(String marca, String modelo, Integer megapixeles, Integer selfie) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.megapixeles = megapixeles;

@@ -12,9 +12,9 @@ public class SO {
 	private long idSO;
 	private String nombre;
 	private Integer version;
-
+	
 	public SO() {
-
+		
 	}
 
 	public SO(String nombre, Integer version) {

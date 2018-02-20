@@ -1,5 +1,7 @@
 package es.sidelab;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,7 @@ public class NoticiaController {
 	@RequestMapping("/SmartestPhone/noticias")
 	public String greetingNoticias(Model model) {
 
-		model.addAttribute("noticia", repositorioNoticia.findByidNoticia(1));
+		model.addAttribute("noticia", repositorioNoticia.findAll());
 
 		return "noticias";
 	}
@@ -27,7 +29,7 @@ public class NoticiaController {
 
 		repositorioNoticia.save(noticia);
 		
-		model.addAttribute("noticia", repositorioNoticia.findByidNoticia(1));
+		model.addAttribute("noticia", repositorioNoticia.findAll());
 
 		return "noticias";
 	}

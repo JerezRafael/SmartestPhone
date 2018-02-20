@@ -20,8 +20,8 @@ public class Smartphone {
 	private Integer almacenamiento;
 	private Integer ram;
 	private Integer peso;
-	@OneToOne(cascade=CascadeType.ALL)
-	private SO so;
+	private String SO;
+	private Integer versionSO;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Camara camara;
 	@OneToOne(cascade=CascadeType.ALL)
@@ -36,7 +36,7 @@ public class Smartphone {
 	}
 
 	public Smartphone(String marca, String modelo, String color, Integer bateria, 
-			Integer almacenamiento, Integer ram, Integer peso, SO so, Camara camara, Dimensiones dimensiones, Pantalla pantalla, Procesador procesador) {
+			Integer almacenamiento, Integer ram, Integer peso, String SO, Integer versionSO, Camara camara, Dimensiones dimensiones, Pantalla pantalla, Procesador procesador) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.color = color;
@@ -44,7 +44,8 @@ public class Smartphone {
 		this.almacenamiento = almacenamiento;
 		this.ram = ram;
 		this.peso = peso;
-		this.so = so;
+		this.SO = SO;
+		this.versionSO = versionSO;
 		this.camara = camara;
 		this.dimensiones = dimensiones;
 		this.pantalla = pantalla;
@@ -115,12 +116,20 @@ public class Smartphone {
 		this.peso = peso;
 	}
 	
-	public SO getSO() {
-		return so;
+	public String getSO() {
+		return SO;
 	}
 	
-	public void setSO(SO so) {
-		this.so = so;
+	public void setSO(String SO) {
+		this.SO = SO;
+	}
+	
+	public Integer getVersionSO() {
+		return versionSO;
+	}
+	
+	public void setVersionSO(Integer versionSO) {
+		this.versionSO = versionSO;
 	}
 	
 	public Camara getCamara() {
@@ -158,7 +167,7 @@ public class Smartphone {
 	@Override
 	public String toString() {
 		return "SmartPhone [marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", bateria=" + 
-	bateria + ", almacenamiento=" + almacenamiento + ", ram=" + ram + ", peso=" + peso + ", SO=" + so + 
+	bateria + ", almacenamiento=" + almacenamiento + ", ram=" + ram + ", peso=" + peso + ", SO=" + SO + " " + versionSO + 
 	", camara=" + camara + ", dimensiones=" + dimensiones + ", pantalla=" + pantalla + ", procesador=" 
 	+ procesador + "]";
 	}

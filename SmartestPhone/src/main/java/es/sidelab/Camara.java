@@ -1,9 +1,12 @@
 package es.sidelab;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Camara {
@@ -14,6 +17,8 @@ public class Camara {
 	private String modelo;
 	private Integer megapixeles;
 	private Integer selfie;
+	@OneToMany(mappedBy="camara")
+	private List<Smartphone> smartphones;
 	
 	public Camara() {
 		
@@ -66,6 +71,14 @@ public class Camara {
 		this.selfie = selfie;
 	}
 
+	public List<Smartphone> getSmartphones() {
+		return smartphones;
+	}
+	
+	public void setSmartphones(Smartphone smartphone) {
+		smartphones.add(smartphone);
+	}
+	
 	@Override
 	public String toString() {
 		return "Camara [marca=" + marca + ", modelo=" + modelo + ", megapixeles=" + megapixeles + ", selfie=" + selfie + "]";

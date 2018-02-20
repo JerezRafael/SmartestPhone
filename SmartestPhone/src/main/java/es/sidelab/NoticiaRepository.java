@@ -1,9 +1,11 @@
 package es.sidelab;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
-	
-	Noticia findByidNoticia(long idNoticia);
+
+	List<Noticia> findAllByOrderByIdNoticiaDesc();
 	
 }

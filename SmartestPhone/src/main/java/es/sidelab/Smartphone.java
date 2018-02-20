@@ -1,10 +1,14 @@
 package es.sidelab;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -22,14 +26,16 @@ public class Smartphone {
 	private Integer peso;
 	private String SO;
 	private Integer versionSO;
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Camara camara;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Dimensiones dimensiones;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Pantalla pantalla;
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Procesador procesador;
+	@ManyToMany
+	private List<Noticia> noticias;
 	
 	public Smartphone() {
 		
@@ -162,6 +168,14 @@ public class Smartphone {
 	
 	public void setProcesador(Procesador procesador) {
 		this.procesador = procesador;
+	}
+	
+	public List<Noticia> getNoticias() {
+		return noticias;
+	}
+	
+	public void setNoticias(Noticia noticia) {
+		noticias.add(noticia);
 	}
 
 	@Override

@@ -17,7 +17,7 @@ public class NoticiaController {
 	@RequestMapping("/SmartestPhone/noticias")
 	public String greetingNoticias(Model model) {
 
-		model.addAttribute("noticia", repositorioNoticia.findAll());
+		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "noticias";
 	}

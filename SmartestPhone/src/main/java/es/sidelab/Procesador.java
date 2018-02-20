@@ -1,9 +1,12 @@
 package es.sidelab;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Procesador {
@@ -14,6 +17,8 @@ public class Procesador {
 	private String modelo;
 	private Double ghz;
 	private Integer nucleos;
+	@OneToMany(mappedBy="procesador")
+	private List<Smartphone> smartphones;
 	
 	public Procesador() {
 		
@@ -64,6 +69,14 @@ public class Procesador {
 
 	public void setNucleos(Integer nucleos) {
 		this.nucleos = nucleos;
+	}
+	
+	public List<Smartphone> getSmartphones() {
+		return smartphones;
+	}
+	
+	public void setSmartphones(Smartphone smartphone) {
+		smartphones.add(smartphone);
 	}
 
 	@Override

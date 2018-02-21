@@ -1,21 +1,45 @@
 package es.sidelab;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController {
 
-	@RequestMapping("/SmartestPhone")
-	public String greetingInicio() {
+	@Autowired
+	private SmartphoneRepository repositorioSmartphone;
+	private ProcesadorRepository repositorioProcesador;
+	private CamaraRepository repositorioCamara;
 
-		return "inicio";
+	@RequestMapping("/SmartestPhone/añadir/smartphone")
+	public String greetingAñadirSmartphone(Model model) {
+		
+		model.addAttribute("camaras", repositorioCamara.findAll());
+		model.addAttribute("procesadores", repositorioProcesador.findAll());
+
+		return "añadirSmartphone";
 	}
 
-	@RequestMapping("/SmartestPhone/añadir")
-	public String greetingAñadir() {
+	@RequestMapping("/SmartestPhone/añadir/camara")
+	public String greetingAñadirCamara(Model model) {
 
-		return "añadir";
+		return "añadirCamara";
+	}
+
+	@RequestMapping("/SmartestPhone/añadir/procesador")
+	public String greetingAñadirProcesador(Model model) {
+
+		return "añadirProcesador";
+	}
+
+	@RequestMapping("/SmartestPhone/añadir/noticia")
+	public String greetingAñadirNoticia(Model model) {
+
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
+
+		return "añadirNoticia";
 	}
 
 }

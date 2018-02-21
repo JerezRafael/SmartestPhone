@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
-	<title>SmartestPhone - Noticias</title>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>SmartestPhone - Añadir nueva camara</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -21,11 +21,13 @@
 <body>
 	<div class="container">
 		<div class="jumbotron">
-			<h1 class="display-2"><b>SmartestPhone</b></h1>
-			<br/>
-			<h3 class="display-4"><b>Noticias</b></h3>
-			<br/>
-			<h4 class="display-5"><b>{{#smartphone}}{{marca}} {{modelo}}{{/smartphone}}</b></h4>
+			<h1 class="display-2">
+				<b>SmartestPhone</b>
+			</h1>
+			<br />
+			<h3 class="display-4">
+				<b>Añadir una nueva cámara</b>
+			</h3>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
@@ -35,10 +37,10 @@
 					</li>
 					<li class="nav-item">
 						<div class="dropdown">
-							<span class="nav-link unselectable" data-toggle="dropdown">Añadir</span>
+							<span class="nav-link unselectable active" data-toggle="dropdown">Añadir</span>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="/SmartestPhone/añadir/smartphone">SmartPhone</a>
-								<a class="dropdown-item" href="/SmartestPhone/añadir/camara">Cámara</a>
+								<a class="dropdown-item active" href="/SmartestPhone/añadir/camara">Cámara</a>
 								<a class="dropdown-item" href="/SmartestPhone/añadir/procesador">Procesador</a>
 								<a class="dropdown-item" href="/SmartestPhone/añadir/noticia">Noticia</a>
 							</div>
@@ -48,61 +50,38 @@
 						<a class="nav-link disabled" data-toggle="tooltip" title="Accede buscandolo en inicio" disabled>Detalles</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active">Noticias</a>
+						<a class="nav-link" href="/SmartestPhone/noticias">Noticias</a>
 					</li>
 				</ul>
 				<br />
 			</div>
 		</div>
-		<h1 class="display-4">Últimas noticias <small><button type="button" class="btn btn-info" data-toggle="modal" data-target="#buscarNoticias">Buscar</button></small></h1>
-		
-		<div class="row">
-			{{#noticias}}
-				<div class="col-sm-4">
-					<p>
-						<h3>{{titulo}}</h3>
-						<a target="_blank" href="//{{url}}">{{url}}</a>
-					</p>
-				</div>
-			{{/noticias}}
-		</div>
-	</div>
-	
-	<div class="modal fade" id="buscarNoticias">
-		<div class="modal-dialog">
-			<div class="modal-content">
-			
-				<div class="modal-header">
-					<h4 class="modal-title">Buscar noticias</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<form method="get" action="/SmartestPhone/noticias/buscar">
-					<div class="modal-body">
-						<h5 class="modal-title">Selecciona un smartphone</h5>
-						<select class="form-control" name="idSmartphone" required>
-							{{#smartphones}}
-								<option value="{{idSmartphone}}">{{marca}} {{modelo}}</option>
-							{{/smartphones}}
-							{{^smartphones}}
-								<option disabled>No existe ningun smartphone</option>
-							{{/smartphones}}
-						</select> <br />
-					</div>
-					
-					<!-- Modal footer -->
-					<div class="modal-footer">
-						<input type="submit" value="Añadir" class="btn btn-success" />
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-					</div>
-				</form>
+		<h1 class="display-4">Añadir nueva cámara</h1><br />
+		<form class="form-inline" method="post" action="/SmartestPhone/añadir/camara/solicitud">
+			<div class="col">
+				Marca: 
+				<input type="text" name="marca" class="form-control" maxlength="50" required /> 
 			</div>
-		</div>
+			<div class="col">
+				Modelo: 
+				<input type="text" name="modelo" class="form-control" maxlength="50" required /> 
+			</div>
+			<div class="col">
+				Megapixeles: 
+				<input type="number" name="megapixeles" class="form-control" maxlength="2" min="1" required /> 
+			</div>
+			<div class="col">
+				<br /><input type="submit" value="Añadir" class="btn btn-success" />
+			</div>
+		</form>
+		
+		
 	</div>
-	
 	<script>
 		$(document).ready(function(){
     	$('[data-toggle="tooltip"]').tooltip();   
 		});
 	</script>
+	<br />
 </body>
 </html>

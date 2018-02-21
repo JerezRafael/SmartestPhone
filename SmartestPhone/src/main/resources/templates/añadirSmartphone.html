@@ -7,7 +7,16 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+	<style>
+		.unselectable {
+		    -webkit-touch-callout: none;
+		    -webkit-user-select: none;
+		    -khtml-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
@@ -27,7 +36,15 @@
 						<a class="nav-link" href="/SmartestPhone">Inicio</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="/SmartestPhone/añadir">Añadir</a>
+						<div class="dropdown">
+							<span class="nav-link unselectable active" data-toggle="dropdown">Añadir</span>
+							<div class="dropdown-menu">
+								<a class="dropdown-item active" href="/SmartestPhone/añadir/smartphone">SmartPhone</a>
+								<a class="dropdown-item" href="/SmartestPhone/añadir/camara">Cámara</a>
+								<a class="dropdown-item" href="/SmartestPhone/añadir/procesador">Procesador</a>
+								<a class="dropdown-item" href="/SmartestPhone/añadir/noticia">Noticia</a>
+							</div>
+						</div>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link disabled" data-toggle="tooltip" title="Accede buscandolo en inicio" disabled>Detalles</a>
@@ -39,7 +56,7 @@
 				<br />
 			</div>
 		</div>
-		<h1 class="display-4">Añadir</h1>
+		<h1 class="display-4">Añadir nuevo smartphone</h1><br />
 		<form class="form-inline" method="post" action="/SmartestPhone/añadir/solicitud">
 			<div class="row">
 				<div class="col-sm-3">
@@ -81,14 +98,15 @@
 						<input type="number" name="versionSO" class="form-control" maxlength="1" min="3" max="12" required />
 					</p>
 					<p>
-						<b>Cámara:</b> </br> 
-						Marca: 
-						<input type="text" name="marcacamara" class="form-control" required /> 
-						Modelo: 
-						<input type="text" name="modelocamara" class="form-control" required />
-						Megapixeles: 
-						<input type="number" name="megapixeles" class="form-control" maxlength="2" min="1" required /> 
-						Selfie: <input type="number" name="selfie" class="form-control" maxlength="2" min="1" required />
+						<b>Procesador</b> </br> 
+						<select class="form-control" name="procesador" required>
+							{{#procesadores}}
+								<option value="{{idProcesador}}">{{marca}} {{modelo}}</option>
+							{{/procesadores}}
+							{{^procesadores}}
+								<option disabled>No existe ningun procesador</option>
+							{{/procesadores}}
+						</select> <br />
 					</p>
 				</div>
 				<div class="col-sm-3">
@@ -103,15 +121,15 @@
 						<input type="number" name="resolucion2" class="form-control" size="2" maxlength="4" min="1" max="4096" required />
 					</p>
 					<p>
-						<b>Procesador</b> </br> 
-						Marca: 
-						<input type="text" name="marcacpu" class="form-control" required /> 
-						Modelo: 
-						<input type="text" name="modelocpu" class="form-control" required /> 
-						GHz: 
-						<input type="number" name="ghz" class="form-control" step=".1" maxlength="3" min="1" required /> 
-						Nucleos:<br /> 
-						<input type="number" name="nucleos" class="form-control" maxlength="1" min="1" max="8" required />
+						<b>Cámara:</b> </br> 
+						<select class="form-control" name="camara" required>
+							{{#camaras}}
+								<option value="{{idCamara}}">{{marca}} {{modelo}} {{megapixeles}}</option>
+							{{/camaras}}
+							{{^camaras}}
+								<option disabled>No existe ninguna cámara</option>
+							{{/camaras}}
+						</select> <br />
 					</p>
 				</div>
 				<div class="col-sm-3">
@@ -123,8 +141,8 @@
 					<input type="number" name="largo" class="form-control" size="1" step=".01" maxlength="6" min="1" max="400" required /> 
 					Largo
 				</div>
-				<input type="submit" value="Añadir" class="btn btn-success" />
 			</div>
+			<input type="submit" value="Añadir" class="btn btn-success" />
 		</form>
 	</div>
 	<script>

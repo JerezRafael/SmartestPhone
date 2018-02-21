@@ -8,9 +8,11 @@ public interface SmartphoneRepository extends JpaRepository<Smartphone, Long> {
 	
 	List<Smartphone> findByMarcaAndModelo(String marca, String modelo);
 	
-	Smartphone findByidSmartPhone(long idSmartPhone);
+	Smartphone findByidSmartphone(long idSmartPhone);
+
+	List<Smartphone> findByCamaraIdCamara(long idCamara);
 	
-	List<Smartphone> findByCamaraMarca(String marcacamara);
+	List<Smartphone> findByProcesadorIdProcesador(long idProcesador);
 	
 	List<Smartphone> findByProcesadorMarcaAndProcesadorModelo(String marcaprocesador, String modeloprocesador);
 	

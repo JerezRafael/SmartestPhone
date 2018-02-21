@@ -16,7 +16,7 @@ public class Smartphone {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idSmartPhone;
+	private long idSmartphone;
 	private String marca;
 	private String modelo;
 	private String color;
@@ -59,11 +59,11 @@ public class Smartphone {
 	}
 
 	public long getIdSmartPhone() {
-		return idSmartPhone;
+		return idSmartphone;
 	}
 	
 	public void setIdSmartPhone(long idSmartPhone) {
-		this.idSmartPhone = idSmartPhone;
+		this.idSmartphone = idSmartPhone;
 	}
 	
 	public String getMarca() {

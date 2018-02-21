@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CamaraRepository extends JpaRepository<Camara, Long>{
 	
-	List<Smartphone> findSmartphonesByMarca(String marca);
+	List<Smartphone> findSmartphonesByidCamara(long idCamara);
+
+	Camara findByidCamara(long id);
 	
 }

@@ -7,6 +7,16 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<style>
+		.unselectable {
+		    -webkit-touch-callout: none;
+		    -webkit-user-select: none;
+		    -khtml-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
@@ -26,7 +36,15 @@
 						<a class="nav-link active" href="/SmartestPhone">Inicio</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/SmartestPhone/añadir">Añadir</a>
+						<div class="dropdown">
+							<span class="nav-link unselectable" data-toggle="dropdown">Añadir</span>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="/SmartestPhone/añadir/smartphone">SmartPhone</a>
+								<a class="dropdown-item" href="/SmartestPhone/añadir/camara">Cámara</a>
+								<a class="dropdown-item" href="/SmartestPhone/añadir/procesador">Procesador</a>
+								<a class="dropdown-item" href="/SmartestPhone/añadir/noticia">Noticia</a>
+							</div>
+						</div>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link disabled" data-toggle="tooltip" title="Accede buscandolo mas abajo" disabled>Detalles</a>
@@ -39,27 +57,61 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-sm-9">
 				<h1 class="display-4">Buscar</h1>
-				<fieldset>
-					<form method="get" action="/SmartestPhone/buscar">
-						Marca<br />
-						<input type="text" name="marca" class="form-control" required /><br /> 
-						Modelo<br /> 
-						<input type="text" name="modelo" class="form-control" required /><br /> 
-						<input type="submit" value="Buscar" class="btn btn-info"/>
-					</form>
-				</fieldset>
 			</div>
-			<div class="col-sm-3"></div>
 			<div class="col">
 				<h1 class="display-4">Añadir</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h3>Por Modelo</h3>
+				<form method="get" action="/SmartestPhone/buscar/modelo">
+					Marca<br />
+					<input type="text" name="marca" class="form-control" required /><br /> 
+					Modelo<br /> 
+					<input type="text" name="modelo" class="form-control" required /><br /> 
+					<input type="submit" value="Buscar" class="btn btn-info"/>
+				</form>
+			</div>
+			<div class="col">
+				<h3>Por Procesador</h3>
+				<form method="get" action="/SmartestPhone/buscar/procesador">
+					Modelo<br />
+					<select class="form-control" name="marca" required>
+						{{#procesadores}}
+							<option value="{{idProcesador}}">{{marca}} {{modelo}}</option>
+						{{/procesadores}}
+						{{^procesadores}}
+							<option disabled>No existe ningun procesador</option>
+						{{/procesadores}}
+					</select> <br />
+					<input type="submit" value="Buscar" class="btn btn-info"/>
+				</form>
+			</div>
+			<div class="col">
+				<h3>Por Cámara</h3>
+				<form method="get" action="/SmartestPhone/buscar/camara">
+					Modelo<br />
+					<select class="form-control" name="idCamara" required>
+						{{#camaras}}
+							<option value="{{idCamara}}">{{marca}} {{modelo}}</option>
+						{{/camaras}}
+						{{^camaras}}
+							<option disabled>No existe ninguna cámara</option>
+						{{/camaras}}
+					</select> <br />
+					<input type="submit" value="Buscar" class="btn btn-info"/>
+				</form>
+			</div>
+			<div class="col">
 				<p>
 					¿No encuentras tu smartphone?<br /> 
 					Añádelo a nuestra base de datos!
 				</p>
 				<p>
-					<a href="/SmartestPhone/añadir" class="btn btn-primary" role="button">Añadir</a>
+					<a href="/SmartestPhone/añadir/smartphone" class="btn btn-primary" role="button">Añadir</a>
 				</p>
 			</div>
 		</div>
@@ -84,7 +136,9 @@
 				</div>
 			{{/smartphones}}
 			{{^smartphones}}
-				<h5>No hay resultados</h5>
+				<div class="col-sm-3">
+					<h5>No hay resultados</h5>
+				</div>
 			{{/smartphones}}
 		</div>
 	</div>

@@ -16,7 +16,6 @@ public class Camara {
 	private String marca;
 	private String modelo;
 	private Integer megapixeles;
-	private Integer selfie;
 	@OneToMany(mappedBy="camara")
 	private List<Smartphone> smartphones;
 	
@@ -24,11 +23,10 @@ public class Camara {
 		
 	}
 
-	public Camara(String marca, String modelo, Integer megapixeles, Integer selfie) {
+	public Camara(String marca, String modelo, Integer megapixeles) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.megapixeles = megapixeles;
-		this.selfie = selfie;
 	}
 
 	public long getIdCamara() {
@@ -62,14 +60,6 @@ public class Camara {
 	public void setMegapixeles(Integer megapixeles) {
 		this.megapixeles = megapixeles;
 	}
-	
-	public Integer getSelfie() {
-		return selfie;
-	}
-
-	public void setSelfie(Integer selfie) {
-		this.selfie = selfie;
-	}
 
 	public List<Smartphone> getSmartphones() {
 		return smartphones;
@@ -81,7 +71,7 @@ public class Camara {
 	
 	@Override
 	public String toString() {
-		return "Camara [marca=" + marca + ", modelo=" + modelo + ", megapixeles=" + megapixeles + ", selfie=" + selfie + "]";
+		return "Camara [marca=" + marca + ", modelo=" + modelo + ", megapixeles=" + megapixeles + "]";
 	}
 
 }

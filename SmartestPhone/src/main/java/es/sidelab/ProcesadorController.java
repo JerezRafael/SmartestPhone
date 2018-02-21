@@ -11,22 +11,16 @@ public class ProcesadorController {
 
 	@Autowired
 	private ProcesadorRepository repositorioProcesador;
+	@Autowired
+	private SmartphoneRepository repositorioSmartPhone;
 
 	@RequestMapping("/SmartestPhone/buscar/procesador")
 	public String buscarProcesador(@RequestParam long idProcesador, Model model) {
 
-		model.addAttribute("smartphones", repositorioProcesador.findSmartphonesByidProcesador(idProcesador));
+		model.addAttribute("smartphones", repositorioSmartPhone.findByProcesadorIdProcesador(idProcesador));
 
 		return "inicio";
 	}
-	
-//	@RequestMapping("/SmartestPhone")												// deberia estar en webcontroller
-//	public String greetingInicio(Model model) {
-//		
-//		model.addAttribute("procesadores", repositorioProcesador.findAll());
-//
-//		return "inicio";
-//	}
 
 	@RequestMapping("/SmartestPhone/añadir/procesador/solicitud")
 	public String añadirSmartphone(@RequestParam String marca, @RequestParam String modelo, @RequestParam Double ghz, @RequestParam Integer nucleos, Model model) {

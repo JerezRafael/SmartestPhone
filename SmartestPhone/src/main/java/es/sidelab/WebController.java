@@ -10,7 +10,9 @@ public class WebController {
 
 	@Autowired
 	private SmartphoneRepository repositorioSmartphone;
+	@Autowired
 	private ProcesadorRepository repositorioProcesador;
+	@Autowired
 	private CamaraRepository repositorioCamara;
 
 	@RequestMapping("/SmartestPhone/añadir/smartphone")

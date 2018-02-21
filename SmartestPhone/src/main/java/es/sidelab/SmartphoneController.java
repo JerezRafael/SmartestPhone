@@ -11,7 +11,9 @@ public class SmartphoneController {
 
 	@Autowired
 	private SmartphoneRepository repositorioSmartPhone;
+	@Autowired
 	private ProcesadorRepository repositorioProcesador;
+	@Autowired
 	private CamaraRepository repositorioCamara;
 
 	@RequestMapping("/SmartestPhone/buscar/modelo")
@@ -28,8 +30,8 @@ public class SmartphoneController {
 			@RequestParam Integer peso, @RequestParam String SO, @RequestParam Integer versionSO, Dimensiones dimensiones,
 			Pantalla pantalla, long idCamara, long idProcesador, Model model) {
 
-		Procesador procesador = repositorioProcesador.findByidProcesador(idProcesador);
-		Camara camara = repositorioCamara.findByidCamara(idCamara);
+		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
+		Camara camara = repositorioCamara.findByIdCamara(idCamara);
 		
 		Smartphone smartphone = new Smartphone(marca, modelo, color, bateria, almacenamiento, ram, peso, SO, versionSO,
 				camara, dimensiones, pantalla, procesador);
@@ -42,7 +44,7 @@ public class SmartphoneController {
 	@RequestMapping("/SmartestPhone/detalles")
 	public String greetingDetalles(@RequestParam long id, Model model) {
 
-		model.addAttribute("smartphone", repositorioSmartPhone.findByidSmartphone(id));
+		model.addAttribute("smartphone", repositorioSmartPhone.findByIdSmartphone(id));
 
 		return "detalles";
 	}
@@ -50,7 +52,7 @@ public class SmartphoneController {
 	@RequestMapping("/SmartestPhone/modificar")
 	public String greetingModificar(@RequestParam long id, Model model) {
 
-		model.addAttribute("smartphone", repositorioSmartPhone.findByidSmartphone(id));
+		model.addAttribute("smartphone", repositorioSmartPhone.findByIdSmartphone(id));
 
 		return "modificar";
 	}
@@ -61,9 +63,9 @@ public class SmartphoneController {
 			@RequestParam Integer ram, @RequestParam Integer peso, @RequestParam String SO, @RequestParam Integer versionSO, long idCamara,
 			Dimensiones dimensiones, Pantalla pantalla, long idProcesador, Model model) {
 
-		Smartphone smartphone = repositorioSmartPhone.findByidSmartphone(id);
-		Procesador procesador = repositorioProcesador.findByidProcesador(idProcesador);
-		Camara camara = repositorioCamara.findByidCamara(idCamara);
+		Smartphone smartphone = repositorioSmartPhone.findByIdSmartphone(id);
+		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
+		Camara camara = repositorioCamara.findByIdCamara(idCamara);
 
 		smartphone.setMarca(marca);
 		smartphone.setModelo(modelo);

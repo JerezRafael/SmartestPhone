@@ -11,12 +11,17 @@ public class CamaraController {
 
 	@Autowired
 	private CamaraRepository repositorioCamara;
+	
+	@Autowired
+	private SmartphoneRepository repositorioSmartPhone;
+	
+	@Autowired
 	private ProcesadorRepository repositorioProcesador;
 
 	@RequestMapping("/SmartestPhone/buscar/camara")
 	public String buscarCamara(@RequestParam long idCamara, Model model) {
 
-		model.addAttribute("smartphones", repositorioCamara.findSmartphonesByidCamara(idCamara));
+		model.addAttribute("smartphones", repositorioSmartPhone.findByCamaraIdCamara(idCamara));
 
 		return "inicio";
 	}
@@ -25,7 +30,7 @@ public class CamaraController {
 	public String greetingInicio(Model model) {
 
 		model.addAttribute("camaras", repositorioCamara.findAll());
-		//model.addAttribute("procesadores", repositorioProcesador.findAll());			linea comentada porque produce error
+		model.addAttribute("procesadores", repositorioProcesador.findAll());
 
 		return "inicio";
 	}

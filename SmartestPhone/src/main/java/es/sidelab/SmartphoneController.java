@@ -3,6 +3,7 @@ package es.sidelab;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -24,17 +25,14 @@ public class SmartphoneController {
 		return "inicio";
 	}
 
-	@RequestMapping("/SmartestPhone/añadir/smartphone/solicitud")
+	@RequestMapping("/SmartestPhone/añadir/solicitud")
 	public String añadirSmartphone(@RequestParam String marca, @RequestParam String modelo, @RequestParam String color,
 			@RequestParam Integer bateria, @RequestParam Integer almacenamiento, @RequestParam Integer ram,
 			@RequestParam Integer peso, @RequestParam String SO, @RequestParam Integer versionSO, Dimensiones dimensiones,
-			Pantalla pantalla, long idCamara, long idProcesador, Model model) {
-
-		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
-		Camara camara = repositorioCamara.findByIdCamara(idCamara);
+			Pantalla pantalla, Camara camaraSeleccionada, Procesador procesadorSeleccionado, Model model) {
 		
 		Smartphone smartphone = new Smartphone(marca, modelo, color, bateria, almacenamiento, ram, peso, SO, versionSO,
-				camara, dimensiones, pantalla, procesador);
+				camaraSeleccionada, dimensiones, pantalla, procesadorSeleccionado);
 
 		repositorioSmartPhone.save(smartphone);
 

@@ -1,5 +1,6 @@
 package es.sidelab;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ public class Noticia {
 	private String titulo;
 	private String url;
 	@ManyToMany(mappedBy="noticias")
-	private List<Smartphone> smartphones;
+	private List<Smartphone> smartphones = new ArrayList<Smartphone>();
 	
 	public Noticia() {
 		

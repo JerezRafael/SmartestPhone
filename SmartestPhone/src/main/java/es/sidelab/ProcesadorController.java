@@ -11,16 +11,6 @@ public class ProcesadorController {
 
 	@Autowired
 	private ProcesadorRepository repositorioProcesador;
-	@Autowired
-	private SmartphoneRepository repositorioSmartPhone;
-
-	@RequestMapping("/SmartestPhone/buscar/procesador")
-	public String buscarProcesador(@RequestParam long idProcesador, Model model) {
-
-		model.addAttribute("smartphones", repositorioSmartPhone.findByProcesadorIdProcesador(idProcesador));
-
-		return "inicio";
-	}
 
 	@RequestMapping("/SmartestPhone/añadir/procesador/solicitud")
 	public String añadirSmartphone(@RequestParam String marcap, @RequestParam String modelop, @RequestParam Double ghz, @RequestParam Integer nucleos, Model model) {

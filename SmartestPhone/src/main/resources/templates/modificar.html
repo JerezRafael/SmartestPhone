@@ -100,8 +100,9 @@
 						</p>
 						<p>
 							<b>Procesador</b> </br> 
-							<select class="form-control" name="procesador" required>
+							<select class="form-control" name="idProcesador" required>
 								<option value="{{procesador.idProcesador}}" selected>{{procesador.marcap}} {{procesador.modelop}}</option>
+								<option disabled>-----------------------------------------------</option>
 								{{#procesadores}}
 									<option value="{{idProcesador}}">{{marcap}} {{modelop}}</option>
 								{{/procesadores}}
@@ -124,8 +125,9 @@
 						</p>
 						<p>
 							<b>Cámara:</b> </br> 
-							<select class="form-control" name="camara" required>
+							<select class="form-control" name="idCamara" required>
 								<option value="{{camara.idCamara}}" selected>{{camara.marcac}} {{camara.modeloc}} {{camara.megapixeles}}</option>
+								<option disabled>-----------------------------------------------</option>
 								{{#camaras}}
 									<option value="{{idCamara}}">{{marcac}} {{modeloc}} {{megapixeles}}</option>
 								{{/camaras}}

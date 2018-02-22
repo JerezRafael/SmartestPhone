@@ -43,7 +43,7 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" disabled>Detalles</a>
+						<a class="nav-link active unselectable" disabled>Detalles</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/SmartestPhone/noticias">Noticias</a>
@@ -106,9 +106,14 @@
 			</div>
 			<div class="row">
 				<h1 class="display-4">Noticias</h1>
-				<div class="col">
-					
+				{{#noticias}}
+				<div class="col-sm-4">
+					<p>
+						<h3>{{titulo}}</h3>
+						<a target="_blank" href="//{{url}}">{{url}}</a>
+					</p>
 				</div>
+			{{/noticias}}
 			</div>
 		{{/smartphone}}
 		{{^smartphone}}

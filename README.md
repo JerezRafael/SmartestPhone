@@ -40,12 +40,28 @@ https://trello.com/b/TDEqe3A9
 ## Páginas web:
 
 ### Inicio
-![inicio](https://i.imgur.com/hLxE7cR.png)
+![inicio](https://i.imgur.com/MIVzhjZ.png)
 Es la página inicial, desde esta se puede acceder a todas las demás, podemos buscar un smartphone y acceder a la web de detalles y podemos tambien ir a añadir un nuevo smartphone
 
-### Añadir
-![añadir](https://i.imgur.com/y12jlyP.png)
+### Noticias
+![noticias](https://i.imgur.com/SHqBp8A.png)
+Pantalla en la que se podrán consultar noticas relacionadas con cada smartphone.
+
+### Añadir smartphone
+![añadirSmartphone](https://i.imgur.com/y12jlyP.png)
 Esta web es unicamente para añadir un smartphone nuevo, una vez puestas todas las caracteristicas se puede añadir y ya volver a la página de inicio. En el futuro se podrá ir directamente a los detalles del smartphone añadido.
+
+### Añadir camara
+![añadirCamara](https://i.imgur.com/QqTtoNE.png)
+Esta pantalla permite añadir una cámara. Todas las camaras que se vayan añadiendo se podrán reutilizar desde la pantalla de añadir smartphone.
+
+### Añadir procesador
+![añadirProcesador](https://i.imgur.com/LaWXmTV.png)
+Esta pantalla permite añadir un procesador. Al igual que las cámaras, todos los procesadores que se vayan añadiendo se podrán reutilizar desde la pantalla de añadir smartphone.
+
+### Añadir noticias
+![añadirNoticias](https://i.imgur.com/hceYgEQ.png)
+Esta pantalla permite añadir una noticia. Se deberá rellenar un título de noticia, añadir un enlace que redireccione a la noticia y un smartphone con el que esté relacionado dicha noticia.
 
 ### Detalles
 ![detalles](https://i.imgur.com/VzCzflY.png)

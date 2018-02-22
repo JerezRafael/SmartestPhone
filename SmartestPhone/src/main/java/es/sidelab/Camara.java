@@ -13,8 +13,8 @@ public class Camara {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idCamara;
-	private String marca;
-	private String modelo;
+	private String marcac;
+	private String modeloc;
 	private Integer megapixeles;
 	@OneToMany(mappedBy="camara")
 	private List<Smartphone> smartphones;
@@ -23,9 +23,9 @@ public class Camara {
 		
 	}
 
-	public Camara(String marca, String modelo, Integer megapixeles) {
-		this.marca = marca;
-		this.modelo = modelo;
+	public Camara(String marcac, String modeloc, Integer megapixeles) {
+		this.marcac = marcac;
+		this.modeloc = modeloc;
 		this.megapixeles = megapixeles;
 	}
 
@@ -37,20 +37,20 @@ public class Camara {
 		this.idCamara = idCamara;
 	}
 	
-	public String getMarca() {
-		return marca;
+	public String getMarcac() {
+		return marcac;
 	}
 
-	public void setMarca(String marca) {
-		this.marca = marca;
+	public void setMarcac(String marca) {
+		this.marcac = marca;
 	}
 
-	public String getModelo() {
-		return modelo;
+	public String getModeloc() {
+		return modeloc;
 	}
 
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
+	public void setModeloc(String modeloc) {
+		this.modeloc = modeloc;
 	}
 
 	public Integer getMegapixeles() {
@@ -71,7 +71,7 @@ public class Camara {
 	
 	@Override
 	public String toString() {
-		return "Camara [marca=" + marca + ", modelo=" + modelo + ", megapixeles=" + megapixeles + "]";
+		return "Camara [marca=" + marcac + ", modelo=" + modeloc + ", megapixeles=" + megapixeles + "]";
 	}
 
 }

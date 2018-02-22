@@ -101,9 +101,9 @@
 						<p>
 							<b>Procesador</b> </br> 
 							<select class="form-control" name="procesador" required>
-								<option value="{{procesador.idProcesador}}" selected>{{procesador.marca}} {{procesador.modelo}}</option>
+								<option value="{{procesador.idProcesador}}" selected>{{procesador.marcap}} {{procesador.modelop}}</option>
 								{{#procesadores}}
-									<option value="{{idProcesador}}">{{marca}} {{modelo}}</option>
+									<option value="{{idProcesador}}">{{marcap}} {{modelop}}</option>
 								{{/procesadores}}
 								{{^procesadores}}
 									<option disabled>No existe ningun procesador</option>
@@ -114,20 +114,20 @@
 					<div class="col-sm-3">
 						<p>
 							<b>Pantalla</b> </br> 
-							Tipo: <input type="text" name="tipo" value="{{tipo}}" class="form-control" required /> 
+							Tipo: <input type="text" name="tipo" value="{{pantalla.tipo}}" class="form-control" required /> 
 							Pulgadas:<br /> 
-							<input type="number" name="pulgadas" value="{{pulgadas}}" class="form-control" step=".1" maxlength="4" min="1" max="7" required /><br /> 
+							<input type="number" name="pulgadas" value="{{pantalla.pulgadas}}" class="form-control" step=".1" maxlength="4" min="1" max="7" required /><br /> 
 							Resolucion:<br />
-							<input type="number" name="resolucion1" value="{{resolucion1}}" class="form-control" size="2" maxlength="4" min="1" max="2160" required /> 
+							<input type="number" name="resolucion1" value="{{pantalla.resolucion1}}" class="form-control" size="2" maxlength="4" min="1" max="2160" required /> 
 							x 
-							<input type="number" name="resolucion2" value="{{resolucion2}}" class="form-control" size="2" maxlength="4" min="1" max="4096" required />
+							<input type="number" name="resolucion2" value="{{pantalla.resolucion2}}" class="form-control" size="2" maxlength="4" min="1" max="4096" required />
 						</p>
 						<p>
 							<b>Cámara:</b> </br> 
 							<select class="form-control" name="camara" required>
-								<option value="{{camara.idCamara}}" selected>{{camara.marca}} {{camara.modelo}} {{camara.megapixeles}}</option>
+								<option value="{{camara.idCamara}}" selected>{{camara.marcac}} {{camara.modeloc}} {{camara.megapixeles}}</option>
 								{{#camaras}}
-									<option value="{{idCamara}}">{{marca}} {{modelo}} {{megapixeles}}</option>
+									<option value="{{idCamara}}">{{marcac}} {{modeloc}} {{megapixeles}}</option>
 								{{/camaras}}
 								{{^camaras}}
 									<option disabled>No existe ninguna cámara</option>
@@ -137,11 +137,11 @@
 					</div>
 					<div class="col-sm-3">
 						<b>Dimensiones</b><br /> 
-						<input type="number" name="ancho" value="{{ancho}}" class="form-control" size="4" step=".01" maxlength="6" min="1" max="400" required /> 
+						<input type="number" name="ancho" value="{{dimensiones.ancho}}" class="form-control" size="4" step=".01" maxlength="6" min="1" max="400" required /> 
 						Alto 
-						<input type="number" name="alto" value="{{alto}}" class="form-control" size="2" step=".01" maxlength="6" min="1" max="400" required /> 
+						<input type="number" name="alto" value="{{dimensiones.alto}}" class="form-control" size="2" step=".01" maxlength="6" min="1" max="400" required /> 
 						Ancho 
-						<input type="number" name="largo" value="{{largo}}" class="form-control" size="1" step=".01" maxlength="6" min="1" max="400" required /> 
+						<input type="number" name="largo" value="{{dimensiones.largo}}" class="form-control" size="1" step=".01" maxlength="6" min="1" max="400" required /> 
 						Largo
 					</div>
 					<input type="hidden" name="id" value="{{idSmartPhone}}" />

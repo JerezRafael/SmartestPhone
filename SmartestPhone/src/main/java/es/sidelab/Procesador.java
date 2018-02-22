@@ -13,8 +13,8 @@ public class Procesador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idProcesador;
-	private String marca;
-	private String modelo;
+	private String marcap;
+	private String modelop;
 	private Double ghz;
 	private Integer nucleos;
 	@OneToMany(mappedBy="procesador")
@@ -24,9 +24,9 @@ public class Procesador {
 		
 	}
 
-	public Procesador(String marca, String modelo, Double ghz, Integer nucleos) {
-		this.marca = marca;
-		this.modelo = modelo;
+	public Procesador(String marcap, String modelop, Double ghz, Integer nucleos) {
+		this.marcap = marcap;
+		this.modelop = modelop;
 		this.ghz = ghz;
 		this.nucleos = nucleos;
 	}
@@ -39,20 +39,20 @@ public class Procesador {
 		this.idProcesador = idProcesador;
 	}
 	
-	public String getMarca() {
-		return marca;
+	public String getMarcap() {
+		return marcap;
 	}
 
-	public void setMarca(String marca) {
-		this.marca = marca;
+	public void setMarcap(String marcap) {
+		this.marcap = marcap;
 	}
 
-	public String getModelo() {
-		return modelo;
+	public String getModelop() {
+		return modelop;
 	}
 
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
+	public void setModelop(String modelop) {
+		this.modelop = modelop;
 	}
 
 	public Double getGhz() {
@@ -81,7 +81,7 @@ public class Procesador {
 
 	@Override
 	public String toString() {
-		return "Procesador [marca=" + marca + ", modelo=" + modelo + ", GHz=" + ghz + ", nucleos=" + nucleos + "]";
+		return "Procesador [marca=" + marcap + ", modelo=" + modelop + ", GHz=" + ghz + ", nucleos=" + nucleos + "]";
 	}
 
 }

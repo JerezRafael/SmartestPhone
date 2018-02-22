@@ -36,9 +36,9 @@ public class CamaraController {
 	}
 
 	@RequestMapping("/SmartestPhone/añadir/camara/solicitud")
-	public String añadirSmartphone(@RequestParam String marca, @RequestParam String modelo, @RequestParam Integer megapixeles, Model model) {
+	public String añadirSmartphone(@RequestParam String marcac, @RequestParam String modeloc, @RequestParam Integer megapixeles, Model model) {
 
-		Camara camara = new Camara(marca, modelo, megapixeles);
+		Camara camara = new Camara(marcac, modeloc, megapixeles);
 
 		repositorioCamara.save(camara);
 

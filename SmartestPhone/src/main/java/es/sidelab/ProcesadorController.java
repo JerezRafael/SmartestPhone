@@ -23,9 +23,9 @@ public class ProcesadorController {
 	}
 
 	@RequestMapping("/SmartestPhone/añadir/procesador/solicitud")
-	public String añadirSmartphone(@RequestParam String marca, @RequestParam String modelo, @RequestParam Double ghz, @RequestParam Integer nucleos, Model model) {
+	public String añadirSmartphone(@RequestParam String marcap, @RequestParam String modelop, @RequestParam Double ghz, @RequestParam Integer nucleos, Model model) {
 
-		Procesador procesador = new Procesador(marca, modelo, ghz, nucleos);
+		Procesador procesador = new Procesador(marcap, modelop, ghz, nucleos);
 
 		repositorioProcesador.save(procesador);
 

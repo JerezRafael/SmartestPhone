@@ -101,7 +101,7 @@
 						<b>Procesador</b> </br> 
 						<select class="form-control" name="procesador" required>
 							{{#procesadores}}
-								<option value="{{idProcesador}}">{{marca}} {{modelo}}</option>
+								<option value="{{idProcesador}}">{{marcap}} {{modelop}}</option>
 							{{/procesadores}}
 							{{^procesadores}}
 								<option disabled>No existe ningun procesador</option>
@@ -124,7 +124,7 @@
 						<b>Cámara:</b> </br> 
 						<select class="form-control" name="camara" required>
 							{{#camaras}}
-								<option value="{{idCamara}}"> {{marca}} {{modelo}} {{megapixeles}}</option>
+								<option value="{{idCamara}}"> {{marcac}} {{modeloc}} {{megapixeles}}</option>
 							{{/camaras}}
 							{{^camaras}}
 								<option disabled>No existe ninguna cámara</option>

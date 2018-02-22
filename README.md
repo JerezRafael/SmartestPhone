@@ -29,19 +29,13 @@ https://trello.com/b/TDEqe3A9
 
 ## Diagrama de navegación
 
-![Diagrama de navegación](https://lh3.googleusercontent.com/-JEu8ZIC7EiQ/WoVTkfoKZUI/AAAAAAAALj8/2KFM1XC0cl0ojGY71E2NvgzXJ3seB1bTQCL0BGAs/w663-d-h222-n-rw/diagNaveg.jpg)
-
-Desde la página de INICIO podemos ir a la página de AÑADIR y a la de DETALLES en el caso que se haya hecho alguna consulta. Desde AÑADIR y DETALLES se puede volver al INICIO. Desde DETALLES se puede volver a AÑADIR para realizar algún cambio.
+![Diagrama de navegación](https://lh3.googleusercontent.com/-NqJcQ3fRIZw/Wo6N5JtYjAI/AAAAAAAALmI/WvI-wAbI5eMaU3PQqP9Wl9JNy-RbPJHxACJoC/w663-h320-n-rw/diagNaveg.jpg)
 
 ## Modelo de datos
-![Modelo datos](https://lh3.googleusercontent.com/-pl8usEPQrfk/WoVKb43_xzI/AAAAAAAALjY/-HoBDA8Qu-wh3g9y7srBSAFbd5wp2mGfwCJoC/w663-h282-n-rw/diagclases.jpg)
-
-Tenemos dos controladores: el de inicio que utiliza de templates inicio.html y añadir.html para sus repectivos métodos greeting; SmartPhoneController cuyos templates utilizados son inicio.html para buscar(), añadir.html para añadirSmartPhone() y detalles.html para greetingDetalles(). También el propio repositorio de smartphone.
+![Modelo datos](https://lh3.googleusercontent.com/-VhAcysdh54I/Wo6FZUODn5I/AAAAAAAALlI/cesjK_YkBfEV6_f72aQDbHZpM02t2gOuwCJoC/w663-h914-n-rw/modelodatos.png)
 
 ## Diagrama entidad/relación
-![Diagrama E/R](https://lh3.googleusercontent.com/-dm_7BsL0vrM/WoVKgM3pIdI/AAAAAAAALjY/iNiu14snpjYyrj_QzPVzPuwkGgD5D90cACJoC/w663-h450-n-rw/diagER.jpg)
-
-Existe una entidad principal que es SmartPhone, que tiene una cámara, un SO, un procesador, una pantalla y unas dimensiones.
+![Diagrama E/R](https://lh3.googleusercontent.com/-f5e-vTO1GJw/Wo6JlO-qIwI/AAAAAAAALls/RwXVCCt640E9vkBCw8SInMs_EzSm3wLGwCJoC/w663-h250-n-rw/diagER.jpg)
 
 ## Páginas web:
 

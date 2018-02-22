@@ -50,7 +50,7 @@ Existe una entidad principal que es SmartPhone, que tiene una cámara, un SO, un
 Es la página inicial, desde esta se puede acceder a todas las demás, podemos buscar un smartphone y acceder a la web de detalles y podemos tambien ir a añadir un nuevo smartphone
 
 ### Añadir
-![añadir](https://i.imgur.com/ekcQoGq.png)
+![añadir](https://i.imgur.com/y12jlyP.png)
 Esta web es unicamente para añadir un smartphone nuevo, una vez puestas todas las caracteristicas se puede añadir y ya volver a la página de inicio. En el futuro se podrá ir directamente a los detalles del smartphone añadido.
 
 ### Detalles

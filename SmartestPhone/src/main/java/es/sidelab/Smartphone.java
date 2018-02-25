@@ -1,5 +1,6 @@
 package es.sidelab;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -34,8 +35,8 @@ public class Smartphone {
 	private Pantalla pantalla;
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Procesador procesador;
-	@ManyToMany
-	private List<Noticia> noticias;
+	@ManyToMany(mappedBy="smartphones")
+	private List<Noticia> noticias = new ArrayList<Noticia>();
 	
 	public Smartphone() {
 		

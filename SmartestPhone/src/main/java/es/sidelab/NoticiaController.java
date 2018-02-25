@@ -35,6 +35,7 @@ public class NoticiaController {
 		}
 
 		repositorioNoticia.save(noticia);
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 
 		return "añadirNoticia";
 	}
@@ -42,7 +43,9 @@ public class NoticiaController {
 	@RequestMapping("/SmartestPhone/noticias/buscar")
 	public String añadirNoticia(@RequestParam long idSmartphone, Model model) {
 		
-		model.addAttribute("noticias", repositorioNoticia.findBySmartphonesIdSmartphone(idSmartphone));
+		model.addAttribute("smartphone", repositorioSmartphone.findByIdSmartphone(idSmartphone));
+		model.addAttribute("noticias", repositorioNoticia.findBySmartphonesIdSmartphoneOrderByIdNoticiaDesc(idSmartphone));
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 
 		return "noticias";
 	}

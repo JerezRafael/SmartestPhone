@@ -16,7 +16,7 @@ public class Noticia {
 	private long idNoticia;
 	private String titulo;
 	private String url;
-	@ManyToMany(mappedBy="noticias")
+	@ManyToMany
 	private List<Smartphone> smartphones = new ArrayList<Smartphone>();
 	
 	public Noticia() {

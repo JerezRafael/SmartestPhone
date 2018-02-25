@@ -90,7 +90,7 @@ public class WebController {
 	public String greetingDetalles(@RequestParam long idSmartphone, Model model) {
 
 		model.addAttribute("smartphone", repositorioSmartphone.findByIdSmartphone(idSmartphone));
-		model.addAttribute("noticias", repositorioNoticia.findBySmartphonesIdSmartphone(idSmartphone));
+		model.addAttribute("noticias", repositorioNoticia.findBySmartphonesIdSmartphoneOrderByIdNoticiaDesc(idSmartphone));
 
 		return "detalles";
 	}

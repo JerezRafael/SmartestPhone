@@ -3,6 +3,7 @@ package es.sidelab;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,7 +17,7 @@ public class SmartphoneController {
 	@Autowired
 	private CamaraRepository repositorioCamara;
 
-	@RequestMapping("/SmartestPhone/añadir/solicitud")
+	@PostMapping("/SmartestPhone/añadir/solicitud")
 	public String añadirSmartphone(@RequestParam String marca, @RequestParam String modelo, @RequestParam String color,
 			@RequestParam Integer bateria, @RequestParam Integer almacenamiento, @RequestParam Integer ram,
 			@RequestParam Integer peso, @RequestParam String SO, @RequestParam Integer versionSO,
@@ -45,7 +46,7 @@ public class SmartphoneController {
 		return "modificar";
 	}
 
-	@RequestMapping("/SmartestPhone/modificar/solicitud")
+	@PostMapping("/SmartestPhone/modificar/solicitud")
 	public String modificarSmartphone(@RequestParam long id, @RequestParam String marca, @RequestParam String modelo,
 			@RequestParam String color, @RequestParam Integer bateria, @RequestParam Integer almacenamiento,
 			@RequestParam Integer ram, @RequestParam Integer peso, @RequestParam String SO,

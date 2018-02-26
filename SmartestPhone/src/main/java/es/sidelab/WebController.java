@@ -3,6 +3,7 @@ package es.sidelab;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,7 +43,7 @@ public class WebController {
 
 		model.addAttribute("camaras", repositorioCamara.findAll());
 		model.addAttribute("procesadores", repositorioProcesador.findAll());
-		
+
 		return "inicio";
 	}
 
@@ -50,7 +51,7 @@ public class WebController {
 	public String buscarCamara(@RequestParam long idCamara, Model model) {
 
 		model.addAttribute("smartphones", repositorioSmartphone.findByCamaraIdCamara(idCamara));
-		
+
 		model.addAttribute("camaras", repositorioCamara.findAll());
 		model.addAttribute("procesadores", repositorioProcesador.findAll());
 
@@ -59,7 +60,7 @@ public class WebController {
 
 	@RequestMapping("/SmartestPhone/añadir/smartphone")
 	public String greetingAñadirSmartphone(Model model) {
-		
+
 		model.addAttribute("camaras", repositorioCamara.findAll());
 		model.addAttribute("procesadores", repositorioProcesador.findAll());
 
@@ -90,9 +91,41 @@ public class WebController {
 	public String greetingDetalles(@RequestParam long idSmartphone, Model model) {
 
 		model.addAttribute("smartphone", repositorioSmartphone.findByIdSmartphone(idSmartphone));
-		model.addAttribute("noticias", repositorioNoticia.findBySmartphonesIdSmartphoneOrderByIdNoticiaDesc(idSmartphone));
+		model.addAttribute("noticias",
+				repositorioNoticia.findBySmartphonesIdSmartphoneOrderByIdNoticiaDesc(idSmartphone));
 
 		return "detalles";
 	}
 
+	@RequestMapping("/SmartestPhone/noticias")
+	public String greetingNoticias(Model model) {
+
+		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
+
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
+
+		return "noticias";
+	}
+
+	@RequestMapping("/SmartestPhone/noticias/buscar")
+	public String añadirNoticia(@RequestParam long idSmartphone, Model model) {
+
+		model.addAttribute("smartphone", repositorioSmartphone.findByIdSmartphone(idSmartphone));
+		model.addAttribute("noticias",
+				repositorioNoticia.findBySmartphonesIdSmartphoneOrderByIdNoticiaDesc(idSmartphone));
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
+
+		return "noticias";
+	}
+
+	@RequestMapping("/SmartestPhone/gestion")
+	public String greetingGestion(Model model) {
+		
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
+		model.addAttribute("camaras", repositorioCamara.findAll());
+		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
+
+		return "gestion";
+	}
 }

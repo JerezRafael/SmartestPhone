@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<title>SmartestPhone - Inicio</title>
+	<title>SmartestPhone - Gestión</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -33,7 +33,7 @@
 			<div class="col-sm-12">
 				<ul class="nav nav-tabs nav-justified">
 					<li class="nav-item">
-						<a class="nav-link active" href="/SmartestPhone">Inicio</a>
+						<a class="nav-link" href="/SmartestPhone">Inicio</a>
 					</li>
 					<li class="nav-item">
 						<div class="dropdown">
@@ -53,73 +53,15 @@
 						<a class="nav-link" href="/SmartestPhone/noticias">Noticias</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/SmartestPhone/gestion">Gestión</a>
+						<a class="nav-link active" href="/SmartestPhone/gestion">Gestión</a>
 					</li>
 				</ul>
 				<br />
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-9">
-				<h1 class="display-4">Buscar</h1>
-			</div>
-			<div class="col">
-				<h1 class="display-4">Añadir</h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<h3>Por Modelo</h3>
-				<form method="get" action="/SmartestPhone/buscar/modelo">
-					Marca<br />
-					<input type="text" name="marca" class="form-control" required /><br /> 
-					Modelo<br /> 
-					<input type="text" name="modelo" class="form-control" required /><br /> 
-					<input type="submit" value="Buscar" class="btn btn-info"/>
-				</form>
-			</div>
-			<div class="col">
-				<h3>Por Procesador</h3>
-				<form method="get" action="/SmartestPhone/buscar/procesador">
-					Modelo<br />
-					<select class="form-control" name="idProcesador" required>
-						{{#procesadores}}
-							<option value="{{idProcesador}}">{{marcap}} {{modelop}}</option>
-						{{/procesadores}}
-						{{^procesadores}}
-							<option disabled>No existe ningun procesador</option>
-						{{/procesadores}}
-					</select> <br />
-					<input type="submit" value="Buscar" class="btn btn-info"/>
-				</form>
-			</div>
-			<div class="col">
-				<h3>Por Cámara</h3>
-				<form method="get" action="/SmartestPhone/buscar/camara">
-					Modelo<br />
-					<select class="form-control" name="idCamara" required>
-						{{#camaras}}
-							<option value="{{idCamara}}">{{marcac}} {{modeloc}}</option>
-						{{/camaras}}
-						{{^camaras}}
-							<option disabled>No existe ninguna cámara</option>
-						{{/camaras}}
-					</select> <br />
-					<input type="submit" value="Buscar" class="btn btn-info"/>
-				</form>
-			</div>
-			<div class="col">
-				<p>
-					¿No encuentras tu smartphone?<br /> 
-					Añádelo a nuestra base de datos!
-				</p>
-				<p>
-					<a href="/SmartestPhone/añadir/smartphone" class="btn btn-primary" role="button">Añadir</a>
-				</p>
-			</div>
-		</div>
-		<br />
-		<h1 class="display-4">Resultados</h1>
+		
+		
+		<h1 class="display-4">Smartphones</h1>
 		<div class="row">
 			{{#smartphones}}
 				<div class="col-sm-3">
@@ -133,16 +75,97 @@
 						<p>
 							Color: <small>{{color}}</small>
 						</p>
-						<a href="/SmartestPhone/detalles?idSmartphone={{idSmartphone}}" class="btn btn-success" role="button">Ver detalles</a>
+						<a href="/SmartestPhone/gestion/gestion/smartphone?idSmartphone={{idSmartphone}}" class="btn btn-danger" role="button">Borrar</a>
 					</h6>
 					<br />
 				</div>
 			{{/smartphones}}
 			{{^smartphones}}
 				<div class="col-sm-3">
-					<h5>No hay resultados</h5>
+					<h5>No hay ningún smartphone</h5>
 				</div>
 			{{/smartphones}}
+		</div>
+		
+		
+		<h1 class="display-4">Procesadores</h1>
+		<div class="row">
+			{{#procesadores}}
+				<div class="col-sm-3">
+					<h6>
+						<p>
+							Marca: <small>{{marcap}}</small>
+						</p>
+						<p>
+							Modelo: <small>{{modelop}}</small>
+						</p>
+						<p>
+							GHz: <small>{{ghz}}</small>
+						</p>
+						<p>
+							Núcleos: <small>{{nucleos}}</small>
+						</p>
+						<a href="/SmartestPhone/gestion/gestion/procesador?idProcesador={{idProcesador}}" class="btn btn-danger" role="button">Borrar</a>
+					</h6>
+					<br />
+				</div>
+			{{/procesadores}}
+			{{^procesadores}}
+				<div class="col-sm-3">
+					<h5>No hay ningún procesador</h5>
+				</div>
+			{{/procesadores}}
+		</div>
+		
+		
+		<h1 class="display-4">Cámaras</h1>
+		<div class="row">
+			{{#camaras}}
+				<div class="col-sm-3">
+					<h6>
+						<p>
+							Marca: <small>{{marcac}}</small>
+						</p>
+						<p>
+							Modelo: <small>{{modeloc}}</small>
+						</p>
+						<p>
+							Megapixeles: <small>{{megapixeles}}</small>
+						</p>
+						<a href="/SmartestPhone/gestion/gestion/camara?idCamara={{idCamara}}" class="btn btn-danger" role="button">Borrar</a>
+					</h6>
+					<br />
+				</div>
+			{{/camaras}}
+			{{^camaras}}
+				<div class="col-sm-3">
+					<h5>No hay ninguna cámara</h5>
+				</div>
+			{{/camaras}}
+		</div>
+		
+		
+		<h1 class="display-4">Noticias</h1>
+		<div class="row">
+			{{#noticias}}
+				<div class="col-sm-3">
+					<h6>
+						<p>
+							{{titulo}}
+						</p>
+						<p>
+							<small><a target="_blank" href="//{{url}}">{{url}}</a></small>
+						</p>
+						<a href="/SmartestPhone/gestion/gestion/noticia?idNoticia={{idNoticia}}" class="btn btn-danger" role="button">Borrar</a>
+					</h6>
+					<br />
+				</div>
+			{{/noticias}}
+			{{^noticias}}
+				<div class="col-sm-3">
+					<h5>No hay ninguna noticia</h5>
+				</div>
+			{{/noticias}}
 		</div>
 	</div>
 	<script>

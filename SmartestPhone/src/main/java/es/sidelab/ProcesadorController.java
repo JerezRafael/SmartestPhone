@@ -10,15 +10,37 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProcesadorController {
 
 	@Autowired
+	private SmartphoneRepository repositorioSmartphone;
+	@Autowired
 	private ProcesadorRepository repositorioProcesador;
+	@Autowired
+	private CamaraRepository repositorioCamara;
+	@Autowired
+	private NoticiaRepository repositorioNoticia;
 
 	@PostMapping("/SmartestPhone/añadir/procesador/solicitud")
-	public String añadirSmartphone(@RequestParam String marcap, @RequestParam String modelop, @RequestParam Double ghz, @RequestParam Integer nucleos, Model model) {
+	public String añadirSmartphone(@RequestParam String marcap, @RequestParam String modelop, @RequestParam Double ghz,
+			@RequestParam Integer nucleos, Model model) {
 
 		Procesador procesador = new Procesador(marcap, modelop, ghz, nucleos);
 
 		repositorioProcesador.save(procesador);
 
 		return "añadirProcesador";
+	}
+
+	@PostMapping("/SmartestPhone/gestion/procesador")
+	public String borrarProcesador(@RequestParam long idProcesador, Model model) {
+
+		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
+
+		repositorioProcesador.delete(procesador);
+		
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
+		model.addAttribute("camaras", repositorioCamara.findAll());
+		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
+
+		return "gestion";
 	}
 }

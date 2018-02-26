@@ -10,15 +10,37 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CamaraController {
 
 	@Autowired
+	private SmartphoneRepository repositorioSmartphone;
+	@Autowired
+	private ProcesadorRepository repositorioProcesador;
+	@Autowired
 	private CamaraRepository repositorioCamara;
+	@Autowired
+	private NoticiaRepository repositorioNoticia;
 
 	@PostMapping("/SmartestPhone/añadir/camara/solicitud")
-	public String añadirSmartphone(@RequestParam String marcac, @RequestParam String modeloc, @RequestParam Integer megapixeles, Model model) {
+	public String añadirSmartphone(@RequestParam String marcac, @RequestParam String modeloc,
+			@RequestParam Integer megapixeles, Model model) {
 
 		Camara camara = new Camara(marcac, modeloc, megapixeles);
 
 		repositorioCamara.save(camara);
 
 		return "añadirCamara";
+	}
+
+	@PostMapping("/SmartestPhone/gestion/camara")
+	public String borrarCamara(@RequestParam long idCamara, Model model) {
+		
+		Camara camara = repositorioCamara.findByIdCamara(idCamara);
+
+		repositorioCamara.delete(camara);
+
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
+		model.addAttribute("camaras", repositorioCamara.findAll());
+		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
+
+		return "gestion";
 	}
 }

@@ -16,6 +16,8 @@ public class SmartphoneController {
 	private ProcesadorRepository repositorioProcesador;
 	@Autowired
 	private CamaraRepository repositorioCamara;
+	@Autowired
+	private NoticiaRepository repositorioNoticia;
 
 	@PostMapping("/SmartestPhone/añadir/solicitud")
 	public String añadirSmartphone(@RequestParam String marca, @RequestParam String modelo, @RequestParam String color,
@@ -28,7 +30,7 @@ public class SmartphoneController {
 				camaraSeleccionada, dimensiones, pantalla, procesadorSeleccionado);
 
 		repositorioSmartphone.save(smartphone);
-		
+
 		model.addAttribute("camaras", repositorioCamara.findAll());
 		model.addAttribute("procesadores", repositorioProcesador.findAll());
 
@@ -47,13 +49,13 @@ public class SmartphoneController {
 	}
 
 	@PostMapping("/SmartestPhone/modificar/solicitud")
-	public String modificarSmartphone(@RequestParam long id, @RequestParam String marca, @RequestParam String modelo,
+	public String modificarSmartphone(@RequestParam long idSmartphone, @RequestParam String marca, @RequestParam String modelo,
 			@RequestParam String color, @RequestParam Integer bateria, @RequestParam Integer almacenamiento,
 			@RequestParam Integer ram, @RequestParam Integer peso, @RequestParam String SO,
 			@RequestParam Integer versionSO, @RequestParam long idCamara, @RequestParam long idProcesador,
 			Dimensiones dimensiones, Pantalla pantalla, Model model) {
 
-		Smartphone smartphone = repositorioSmartphone.findByIdSmartphone(id);
+		Smartphone smartphone = repositorioSmartphone.findByIdSmartphone(idSmartphone);
 		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
 		Camara camara = repositorioCamara.findByIdCamara(idCamara);
 
@@ -73,5 +75,20 @@ public class SmartphoneController {
 		repositorioSmartphone.save(smartphone);
 
 		return "modificar";
+	}
+
+	@PostMapping("/SmartestPhone/gestion/smartphone")
+	public String borrarSmartphone(@RequestParam long idSmartphone, Model model) {
+
+		Smartphone smartphone = repositorioSmartphone.findByIdSmartphone(idSmartphone);
+
+		repositorioSmartphone.delete(smartphone);
+		
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
+		model.addAttribute("camaras", repositorioCamara.findAll());
+		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
+
+		return "gestion";
 	}
 }

@@ -8,4 +8,8 @@ public interface ProcesadorRepository extends JpaRepository<Procesador, Long>{
 
 	Procesador findByIdProcesador(long id);
 	
+	List<Procesador> findBySmartphonesIsNull();
+	
+	List<Procesador> findBySmartphonesIsNotNull();
+	
 }

@@ -37,8 +37,10 @@ public class CamaraController {
 		repositorioCamara.delete(camara);
 
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
-		model.addAttribute("camaras", repositorioCamara.findAll());
-		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("camarasborrables", repositorioCamara.findBySmartphonesIsNull());
+		model.addAttribute("camarasnoborrables", repositorioCamara.findBySmartphonesIsNotNull());
+		model.addAttribute("procesadoresborrables", repositorioProcesador.findBySmartphonesIsNull());
+		model.addAttribute("procesadoresnoborrables", repositorioProcesador.findBySmartphonesIsNotNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "gestion";

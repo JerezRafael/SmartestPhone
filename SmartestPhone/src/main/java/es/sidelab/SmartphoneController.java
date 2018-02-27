@@ -49,11 +49,11 @@ public class SmartphoneController {
 	}
 
 	@PostMapping("/SmartestPhone/modificar/solicitud")
-	public String modificarSmartphone(@RequestParam long idSmartphone, @RequestParam String marca, @RequestParam String modelo,
-			@RequestParam String color, @RequestParam Integer bateria, @RequestParam Integer almacenamiento,
-			@RequestParam Integer ram, @RequestParam Integer peso, @RequestParam String SO,
-			@RequestParam Integer versionSO, @RequestParam long idCamara, @RequestParam long idProcesador,
-			Dimensiones dimensiones, Pantalla pantalla, Model model) {
+	public String modificarSmartphone(@RequestParam long idSmartphone, @RequestParam String marca,
+			@RequestParam String modelo, @RequestParam String color, @RequestParam Integer bateria,
+			@RequestParam Integer almacenamiento, @RequestParam Integer ram, @RequestParam Integer peso,
+			@RequestParam String SO, @RequestParam Integer versionSO, @RequestParam long idCamara,
+			@RequestParam long idProcesador, Dimensiones dimensiones, Pantalla pantalla, Model model) {
 
 		Smartphone smartphone = repositorioSmartphone.findByIdSmartphone(idSmartphone);
 		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
@@ -83,10 +83,12 @@ public class SmartphoneController {
 		Smartphone smartphone = repositorioSmartphone.findByIdSmartphone(idSmartphone);
 
 		repositorioSmartphone.delete(smartphone);
-		
+
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
-		model.addAttribute("camaras", repositorioCamara.findAll());
-		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("camarasborrables", repositorioCamara.findBySmartphonesIsNull());
+		model.addAttribute("camarasnoborrables", repositorioCamara.findBySmartphonesIsNotNull());
+		model.addAttribute("procesadoresborrables", repositorioProcesador.findBySmartphonesIsNull());
+		model.addAttribute("procesadoresnoborrables", repositorioProcesador.findBySmartphonesIsNotNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "gestion";

@@ -1,5 +1,7 @@
 package es.sidelab;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,14 +33,16 @@ public class ProcesadorController {
 
 	@PostMapping("/SmartestPhone/gestion/procesador")
 	public String borrarProcesador(@RequestParam long idProcesador, Model model) {
-
+		
 		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
 
 		repositorioProcesador.delete(procesador);
 		
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
-		model.addAttribute("camaras", repositorioCamara.findAll());
-		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("camarasborrables", repositorioCamara.findBySmartphonesIsNull());
+		model.addAttribute("camarasnoborrables", repositorioCamara.findBySmartphonesIsNotNull());
+		model.addAttribute("procesadoresborrables", repositorioProcesador.findBySmartphonesIsNull());
+		model.addAttribute("procesadoresnoborrables", repositorioProcesador.findBySmartphonesIsNotNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "gestion";

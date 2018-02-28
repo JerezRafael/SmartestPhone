@@ -10,6 +10,4 @@ public interface CamaraRepository extends JpaRepository<Camara, Long>{
 	
 	List<Camara> findBySmartphonesIsNull();
 	
-	List<Camara> findBySmartphonesIsNotNull();
-	
 }

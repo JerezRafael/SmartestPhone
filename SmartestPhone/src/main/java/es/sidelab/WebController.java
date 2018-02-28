@@ -3,7 +3,6 @@ package es.sidelab;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -122,10 +121,8 @@ public class WebController {
 	public String greetingGestion(Model model) {
 		
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
-		model.addAttribute("camarasborrables", repositorioCamara.findBySmartphonesIsNull());
-		model.addAttribute("camarasnoborrables", repositorioCamara.findBySmartphonesIsNotNull());
-		model.addAttribute("procesadoresborrables", repositorioProcesador.findBySmartphonesIsNull());
-		model.addAttribute("procesadoresnoborrables", repositorioProcesador.findBySmartphonesIsNotNull());
+		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
+		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "gestion";

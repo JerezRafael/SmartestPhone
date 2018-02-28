@@ -93,7 +93,7 @@
 		
 		<h1 class="display-4">Procesadores</h1>
 		<div class="row">
-			{{#procesadoresborrables}}
+			{{#procesadores}}
 				<div class="col-sm-3">
 					<h6>
 						<form class="form" method="post" action="/SmartestPhone/gestion/procesador">
@@ -115,42 +115,18 @@
 					</h6>
 					<br />
 				</div>
-			{{/procesadoresborrables}}
-			{{^procesadoresborrables}}
+			{{/procesadores}}
+			{{^procesadores}}
 				<div class="col-sm-3">
-					<h5>No se puede eliminar ningún procesador, a continuación se
-					muestran los procesadores en uso de cada smartphone respectivamente</h5>
+					<h5>No hay ningún procesador que se pueda eliminar</h5><br />
 				</div>
-			{{/procesadoresborrables}}
-			{{#procesadoresnoborrables}}
-				<div class="col-sm-3">
-					<h6>
-						<form class="form" method="post" action="/SmartestPhone/gestion/procesador">
-							<p>
-								Marca: <small>{{marcap}}</small>
-							</p>
-							<p>
-								Modelo: <small>{{modelop}}</small>
-							</p>
-							<p>
-								GHz: <small>{{ghz}}</small>
-							</p>
-							<p>
-								Núcleos: <small>{{nucleos}}</small>
-							</p>
-							<input type="hidden" name="idProcesador" value="{{idProcesador}}" />
-							<input type="submit" value="Eliminar" class="btn btn-danger" disabled />
-						</form>
-					</h6>
-					<br />
-				</div>
-			{{/procesadoresnoborrables}}
+			{{/procesadores}}
 		</div>
 		
 		
 		<h1 class="display-4">Cámaras</h1>
 		<div class="row">
-			{{#camarasborrables}}
+			{{#camaras}}
 				<div class="col-sm-3">
 					<h6>
 						<form class="form" method="post" action="/SmartestPhone/gestion/camara">
@@ -169,32 +145,12 @@
 					</h6>
 					<br />
 				</div>
-			{{/camarasborrables}}
-			{{^camarasborrables}}
+			{{/camaras}}
+			{{^camaras}}
 				<div class="col-sm-3">
-					<h5>No se puede eliminar ninguna cámara, a continuación se muestran las camaras en uso de cada smartphone respectivamente</h5>
+					<h5>No hay ninguna cámara que se pueda eliminar</h5><br />
 				</div>
-			{{/camarasborrables}}
-			{{#camarasnoborrables}}
-				<div class="col-sm-3">
-					<h6>
-						<form class="form" method="post" action="/SmartestPhone/gestion/procesador">
-							<p>
-								Marca: <small>{{marcac}}</small>
-							</p>
-							<p>
-								Modelo: <small>{{modeloc}}</small>
-							</p>
-							<p>
-								Megapixeles: <small>{{megapixeles}}</small>
-							</p>
-							<input type="hidden" name="idCamara" value="{{idCamara}}" />
-							<input type="submit" value="Eliminar" class="btn btn-danger" disabled />
-						</form>
-					</h6>
-					<br />
-				</div>
-			{{/camarasnoborrables}}
+			{{/camaras}}
 		</div>
 		
 		

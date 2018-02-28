@@ -1,7 +1,5 @@
 package es.sidelab;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,10 +37,8 @@ public class ProcesadorController {
 		repositorioProcesador.delete(procesador);
 		
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
-		model.addAttribute("camarasborrables", repositorioCamara.findBySmartphonesIsNull());
-		model.addAttribute("camarasnoborrables", repositorioCamara.findBySmartphonesIsNotNull());
-		model.addAttribute("procesadoresborrables", repositorioProcesador.findBySmartphonesIsNull());
-		model.addAttribute("procesadoresnoborrables", repositorioProcesador.findBySmartphonesIsNotNull());
+		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
+		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "gestion";

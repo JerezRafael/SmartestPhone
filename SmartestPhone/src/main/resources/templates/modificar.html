@@ -105,7 +105,7 @@
 							<b>Procesador</b> </br> 
 							<select class="form-control" name="idProcesador" required>
 								<option value="{{procesador.idProcesador}}" selected>{{procesador.marcap}} {{procesador.modelop}}</option>
-								<option disabled>-----------------------------------------------</option>
+								<option disabled>------------------------------</option>
 								{{#procesadores}}
 									<option value="{{idProcesador}}">{{marcap}} {{modelop}}</option>
 								{{/procesadores}}
@@ -130,7 +130,7 @@
 							<b>Cámara:</b> </br> 
 							<select class="form-control" name="idCamara" required>
 								<option value="{{camara.idCamara}}" selected>{{camara.marcac}} {{camara.modeloc}} {{camara.megapixeles}}</option>
-								<option disabled>-----------------------------------------------</option>
+								<option disabled>------------------------------</option>
 								{{#camaras}}
 									<option value="{{idCamara}}">{{marcac}} {{modeloc}}</option>
 								{{/camaras}}
@@ -149,9 +149,9 @@
 						<input type="number" name="largo" value="{{dimensiones.largo}}" class="form-control" size="1" step=".01" maxlength="6" min="1" max="400" required /> 
 						Largo
 					</div>
+				</div>
 					<input type="hidden" name="idSmartphone" value="{{idSmartPhone}}" />
 					<input type="submit" value="Modificar" class="btn btn-warning" />
-				</div>
 			</form>
 		{{/smartphone}}
 		{{^smartphone}}

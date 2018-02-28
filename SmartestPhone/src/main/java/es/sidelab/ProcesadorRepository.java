@@ -10,6 +10,4 @@ public interface ProcesadorRepository extends JpaRepository<Procesador, Long>{
 	
 	List<Procesador> findBySmartphonesIsNull();
 	
-	List<Procesador> findBySmartphonesIsNotNull();
-	
 }

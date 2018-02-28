@@ -123,8 +123,8 @@ public class WebController {
 	public String gestion(Model model) {
 
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
-		model.addAttribute("camaras", repositorioCamara.findAll());
-		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
+		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "gestion";

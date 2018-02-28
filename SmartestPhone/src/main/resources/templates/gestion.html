@@ -66,16 +66,19 @@
 			{{#smartphones}}
 				<div class="col-sm-3">
 					<h6>
-						<p>
-							Marca: <small>{{marca}}</small>
-						</p>
-						<p>
-							Modelo: <small>{{modelo}}</small>
-						</p>
-						<p>
-							Color: <small>{{color}}</small>
-						</p>
-						<a href="/SmartestPhone/gestion/gestion/smartphone?idSmartphone={{idSmartphone}}" class="btn btn-danger" role="button">Borrar</a>
+						<form class="form" method="post" action="/SmartestPhone/gestion/smartphone">
+							<p>
+								Marca: <small>{{marca}}</small>
+							</p>
+							<p>
+								Modelo: <small>{{modelo}}</small>
+							</p>
+							<p>
+								Color: <small>{{color}}</small>
+							</p>
+							<input type="hidden" name="idSmartphone" value="{{idSmartPhone}}" />
+							<input type="submit" value="Eliminar" class="btn btn-danger" />
+						</form>
 					</h6>
 					<br />
 				</div>
@@ -93,26 +96,29 @@
 			{{#procesadores}}
 				<div class="col-sm-3">
 					<h6>
-						<p>
-							Marca: <small>{{marcap}}</small>
-						</p>
-						<p>
-							Modelo: <small>{{modelop}}</small>
-						</p>
-						<p>
-							GHz: <small>{{ghz}}</small>
-						</p>
-						<p>
-							Núcleos: <small>{{nucleos}}</small>
-						</p>
-						<a href="/SmartestPhone/gestion/gestion/procesador?idProcesador={{idProcesador}}" class="btn btn-danger" role="button">Borrar</a>
+						<form class="form" method="post" action="/SmartestPhone/gestion/procesador">
+							<p>
+								Marca: <small>{{marcap}}</small>
+							</p>
+							<p>
+								Modelo: <small>{{modelop}}</small>
+							</p>
+							<p>
+								GHz: <small>{{ghz}}</small>
+							</p>
+							<p>
+								Núcleos: <small>{{nucleos}}</small>
+							</p>
+							<input type="hidden" name="idProcesador" value="{{idProcesador}}" />
+							<input type="submit" value="Eliminar" class="btn btn-danger" />
+						</form>
 					</h6>
 					<br />
 				</div>
 			{{/procesadores}}
 			{{^procesadores}}
 				<div class="col-sm-3">
-					<h5>No hay ningún procesador</h5>
+					<h5>No hay ningún procesador que se pueda eliminar</h5><br />
 				</div>
 			{{/procesadores}}
 		</div>
@@ -123,23 +129,26 @@
 			{{#camaras}}
 				<div class="col-sm-3">
 					<h6>
-						<p>
-							Marca: <small>{{marcac}}</small>
-						</p>
-						<p>
-							Modelo: <small>{{modeloc}}</small>
-						</p>
-						<p>
-							Megapixeles: <small>{{megapixeles}}</small>
-						</p>
-						<a href="/SmartestPhone/gestion/gestion/camara?idCamara={{idCamara}}" class="btn btn-danger" role="button">Borrar</a>
+						<form class="form" method="post" action="/SmartestPhone/gestion/camara">
+							<p>
+								Marca: <small>{{marcac}}</small>
+							</p>
+							<p>
+								Modelo: <small>{{modeloc}}</small>
+							</p>
+							<p>
+								Megapixeles: <small>{{megapixeles}}</small>
+							</p>
+							<input type="hidden" name="idCamara" value="{{idCamara}}" />
+							<input type="submit" value="Eliminar" class="btn btn-danger" />
+						</form>
 					</h6>
 					<br />
 				</div>
 			{{/camaras}}
 			{{^camaras}}
 				<div class="col-sm-3">
-					<h5>No hay ninguna cámara</h5>
+					<h5>No hay ninguna cámara que se pueda eliminar</h5><br />
 				</div>
 			{{/camaras}}
 		</div>
@@ -150,13 +159,16 @@
 			{{#noticias}}
 				<div class="col-sm-3">
 					<h6>
-						<p>
-							{{titulo}}
-						</p>
-						<p>
-							<small><a target="_blank" href="//{{url}}">{{url}}</a></small>
-						</p>
-						<a href="/SmartestPhone/gestion/gestion/noticia?idNoticia={{idNoticia}}" class="btn btn-danger" role="button">Borrar</a>
+						<form class="form" method="post" action="/SmartestPhone/gestion/noticia">
+							<p>
+								{{titulo}}
+							</p>
+							<p>
+								<small><a target="_blank" href="//{{url}}">{{url}}</a></small>
+							</p>
+							<input type="hidden" name="idNoticia" value="{{idNoticia}}" />
+							<input type="submit" value="Eliminar" class="btn btn-danger" />
+						</form>
 					</h6>
 					<br />
 				</div>

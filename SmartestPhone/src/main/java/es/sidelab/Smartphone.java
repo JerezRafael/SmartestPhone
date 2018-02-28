@@ -27,13 +27,13 @@ public class Smartphone {
 	private Integer peso;
 	private String SO;
 	private Integer versionSO;
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	private Camara camara;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Dimensiones dimensiones;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Pantalla pantalla;
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	private Procesador procesador;
 	@ManyToMany(mappedBy="smartphones")
 	private List<Noticia> noticias = new ArrayList<Noticia>();

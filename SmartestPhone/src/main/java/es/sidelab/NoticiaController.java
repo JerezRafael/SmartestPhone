@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -43,8 +42,8 @@ public class NoticiaController {
 		repositorioNoticia.delete(noticia);
 		
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
-		model.addAttribute("camaras", repositorioCamara.findAll());
-		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
+		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "gestion";

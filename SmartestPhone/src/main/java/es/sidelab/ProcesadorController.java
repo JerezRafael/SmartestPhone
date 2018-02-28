@@ -31,14 +31,14 @@ public class ProcesadorController {
 
 	@PostMapping("/SmartestPhone/gestion/procesador")
 	public String borrarProcesador(@RequestParam long idProcesador, Model model) {
-
+		
 		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
 
 		repositorioProcesador.delete(procesador);
 		
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
-		model.addAttribute("camaras", repositorioCamara.findAll());
-		model.addAttribute("procesadores", repositorioProcesador.findAll());
+		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
+		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "gestion";

@@ -3,6 +3,7 @@ package es.sidelab;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +21,7 @@ public class WebController {
 	private NoticiaRepository repositorioNoticia;
 
 	@RequestMapping("/SmartestPhone")
-	public String greetingInicio(Model model) {
+	public String inicio(Model model) {
 
 		model.addAttribute("camaras", repositorioCamara.findAll());
 		model.addAttribute("procesadores", repositorioProcesador.findAll());
@@ -59,7 +60,7 @@ public class WebController {
 	}
 
 	@RequestMapping("/SmartestPhone/añadir/smartphone")
-	public String greetingAñadirSmartphone(Model model) {
+	public String añadirSmartphone(Model model) {
 
 		model.addAttribute("camaras", repositorioCamara.findAll());
 		model.addAttribute("procesadores", repositorioProcesador.findAll());
@@ -68,7 +69,7 @@ public class WebController {
 	}
 
 	@RequestMapping("/SmartestPhone/añadir/noticia")
-	public String greetingAñadirNoticia(Model model) {
+	public String añadirNoticia(Model model) {
 
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 
@@ -76,19 +77,19 @@ public class WebController {
 	}
 
 	@RequestMapping("/SmartestPhone/añadir/camara")
-	public String greetingAñadirCamara(Model model) {
+	public String añadirCamara(Model model) {
 
 		return "añadirCamara";
 	}
 
 	@RequestMapping("/SmartestPhone/añadir/procesador")
-	public String greetingAñadirProcesador(Model model) {
+	public String añadirProcesador(Model model) {
 
 		return "añadirProcesador";
 	}
 
 	@RequestMapping("/SmartestPhone/detalles")
-	public String greetingDetalles(@RequestParam long idSmartphone, Model model) {
+	public String detalles(@RequestParam long idSmartphone, Model model) {
 
 		model.addAttribute("smartphone", repositorioSmartphone.findByIdSmartphone(idSmartphone));
 		model.addAttribute("noticias",
@@ -98,7 +99,7 @@ public class WebController {
 	}
 
 	@RequestMapping("/SmartestPhone/noticias")
-	public String greetingNoticias(Model model) {
+	public String noticias(Model model) {
 
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
@@ -119,13 +120,28 @@ public class WebController {
 	}
 
 	@RequestMapping("/SmartestPhone/gestion")
-	public String greetingGestion(Model model) {
-		
+	public String gestion(Model model) {
+
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 		model.addAttribute("camaras", repositorioCamara.findAll());
 		model.addAttribute("procesadores", repositorioProcesador.findAll());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
 
 		return "gestion";
+	}
+
+	@GetMapping("/SmartestPhone/acceder")
+	public String acceder() {
+		return "acceder";
+	}
+
+	@GetMapping("/SmartestPhone/erroracceder")
+	public String errorAcceder() {
+		return "erroracceder";
+	}
+
+	@GetMapping("/SmartestPhone/salir")
+	public String salir() {
+		return "salir";
 	}
 }

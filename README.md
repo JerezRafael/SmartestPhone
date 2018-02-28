@@ -1,7 +1,7 @@
 # SmartestPhone
 ### Descripcion de la web
 SmartestPhone es una web para comparar teléfonos móviles (a partir de ahora smartphones) que se basará en las aportaciones de los usuarios introduciendo smartphones nuevos que no esten en la base de datos para asi ampliarla. Se podrán consultar las especificaciones técnicas de cada smartphone en apartados ya creados (ej. dimensiones de pantalla, procesador, cámara) y también ver las últimas noticias añadidas por los usuarios del smarphone.
--  Parte Pública: Se podrán comparar smartphones y ver las características y noticias de cada uno.
+-  Parte Pública: Se podrán ver las características y noticias de cada uno.
 -  Parte Privada: Se podrán editar los smartphones, añadirlos a favoritos de la cuenta, añadir noticias y consultar las actividades de la cuenta.
 ### Entidades principales
 - Usuario: Los usuarios pueden añadir nuevos smartphones, procesadores, cámaras y noticias a la base de datos.
@@ -22,18 +22,20 @@ La web tendrá un apartado de notificaciones para que se avise al usuario cuando
 ## Fase 2
 
 ### Diagrama de navegación
-
-![Diagrama de navegación](https://lh3.googleusercontent.com/-NqJcQ3fRIZw/Wo6N5JtYjAI/AAAAAAAALmI/WvI-wAbI5eMaU3PQqP9Wl9JNy-RbPJHxACJoC/w663-h320-n-rw/diagNaveg.jpg)
+Aquí se puede observar como se puede pasar de una página a otra en la web.
+![Diagrama de navegación](https://lh3.googleusercontent.com/-iElodFqOi0w/Wpae7oBOeJI/AAAAAAAALns/FNO693kfao0tyxfTAo530u8ApfOhkOeJwCJoC/w663-h393-n-rw/diagNavegFase2.jpg)
 
 ### Modelo de datos
-![Modelo datos](https://lh3.googleusercontent.com/-VhAcysdh54I/Wo6FZUODn5I/AAAAAAAALlI/cesjK_YkBfEV6_f72aQDbHZpM02t2gOuwCJoC/w663-h914-n-rw/modelodatos.png)
+Modelo representando las tablas creadas en MySQL.
+![Modelo datos](https://lh3.googleusercontent.com/-JczxlnhkGZc/WpafAYZgeBI/AAAAAAAALoA/M1MMjWh4S88V9cfbiEz90fQd1T8IYCXjQCJoC/w663-h612-n-rw/modelodatosFase2.png)
 
 ### Diagrama entidad/relación
-![Diagrama E/R](https://lh3.googleusercontent.com/-f5e-vTO1GJw/Wo6JlO-qIwI/AAAAAAAALls/RwXVCCt640E9vkBCw8SInMs_EzSm3wLGwCJoC/w663-h250-n-rw/diagER.jpg)
+Modelo E/R en el que un smartphone esta compuesto de una pantalla, unas dimensiones, una cámara, un procesador y forma parte de 0 o N noticias. Una cámara puede formar parte de 0 o N smartphones, al igual que un procesador, y una noticia puede hablar de 1 o N smartphones.
+![Diagrama E/R](https://lh3.googleusercontent.com/-_UwcAcF-TpM/WpaiEXOWCLI/AAAAAAAALo4/iYuWGd2bEgUNW9UruRF-g-t7z2Sy_sg6gCJoC/w663-h250-n-rw/diagERFase2.jpg)
 
 ### Páginas web:
 
-### Inicio
+#### Inicio
 Es la página inicial, desde esta se puede acceder a todas las demás, podemos buscar un smartphone y acceder a la web de detalles y podemos tambien ir a añadir un nuevo smartphone, procesador, cámara o noticia y a la página de gestión.
 ![inicio](https://i.imgur.com/r8BNSQ7.png)
 

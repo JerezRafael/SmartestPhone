@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<title>SmartestPhone - Añadir nueva noticia</title>
+	<title>SmartestPhone - Registrarse</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -26,7 +26,7 @@
 			</h1>
 			<br />
 			<h3 class="display-4">
-				<b>Añadir una nueva noticia</b>
+				<b>Registrarse</b>
 			</h3>
 		</div>
 		<div class="row">
@@ -42,7 +42,7 @@
 								<a class="dropdown-item" href="/SmartestPhone/añadir/smartphone">SmartPhone</a>
 								<a class="dropdown-item" href="/SmartestPhone/añadir/camara">Cámara</a>
 								<a class="dropdown-item" href="/SmartestPhone/añadir/procesador">Procesador</a>
-								<a class="dropdown-item active" href="/SmartestPhone/añadir/noticia">Noticia</a>
+								<a class="dropdown-item" href="/SmartestPhone/añadir/noticia">Noticia</a>
 							</div>
 						</div>
 					</li>
@@ -72,23 +72,24 @@
 				<br />
 			</div>
 		</div>
-		<h1 class="display-4">Añadir nueva noticia</h1>
-		<form class="form" method="post" action="/SmartestPhone/añadir/noticia/solicitud">
-			Título:
-			<textarea name="titulo" class="form-control" rows="3" maxlength="180" required></textarea>
-			URL:
-			<input type="text" name="url" class="form-control" maxlength="180" required />
-			<br />
-			<select class="form-control" name="idSmartphones" multiple required>
-				{{#smartphones}}
-					<option value="{{idSmartphone}}">{{marca}} {{modelo}}</option>
-				{{/smartphones}}
-				{{^smartphones}}
-					<option disabled>No existe ningun smartphone</option>
-				{{/smartphones}}
-			</select> <br />
-			<input type="submit" value="Añadir" class="btn btn-success" />
+		<form class="form" method="post" action="/SmartestPhone/registrarse/solicitud">
+			<div class="col-sm-6">
+				<h5>Nuevo usuario</h5>
+				<p>
+					Usuario:
+					<input type="text" name="nombreusuario" class="form-control" required />
+				</p>
+				<p>
+					Contraseña: 
+					<input type="password" name="contraseña" class="form-control" required />
+				</p>
+				<input type="hidden" name="_csrf" value="{{token}}" />
+				<br />
+				<input type="submit" value="Regístrate" class="btn btn-primary" />
+			</div>
 		</form>
+		
+		
 	</div>
 	<script>
 		$(document).ready(function(){

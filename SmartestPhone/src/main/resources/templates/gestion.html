@@ -26,7 +26,7 @@
 			</h1>
 			<br />
 			<h3 class="display-4">
-				<b>Encuentra el smartphone más smart</b>
+				<b>Herramientas de gestión</b>
 			</h3>
 		</div>
 		<div class="row">
@@ -37,7 +37,7 @@
 					</li>
 					<li class="nav-item">
 						<div class="dropdown">
-							<span class="nav-link unselectable" data-toggle="dropdown">Añadir</span>
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Añadir</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="/SmartestPhone/añadir/smartphone">SmartPhone</a>
 								<a class="dropdown-item" href="/SmartestPhone/añadir/camara">Cámara</a>
@@ -52,9 +52,22 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/SmartestPhone/noticias">Noticias</a>
 					</li>
+					{{#admin}}
+					</li>
 					<li class="nav-item">
 						<a class="nav-link active" href="/SmartestPhone/gestion">Gestión</a>
 					</li>
+					{{/admin}}
+					{{#user}}
+					<li class="nav-item">
+						<a class="nav-link" href="/SmartestPhone/salir">Cerrar sesión</a>
+					</li>
+					{{/user}}
+					{{^user}}
+					<li class="nav-item">
+						<a class="nav-link" href="/SmartestPhone/acceder">Iniciar sesión</a>
+					</li>
+					{{/user}}
 				</ul>
 				<br />
 			</div>
@@ -80,7 +93,6 @@
 							<input type="submit" value="Eliminar" class="btn btn-danger" />
 						</form>
 					</h6>
-					<br />
 				</div>
 			{{/smartphones}}
 			{{^smartphones}}
@@ -88,6 +100,7 @@
 					<h5>No hay ningún smartphone</h5>
 				</div>
 			{{/smartphones}}
+			<br /><br />
 		</div>
 		
 		
@@ -113,7 +126,6 @@
 							<input type="submit" value="Eliminar" class="btn btn-danger" />
 						</form>
 					</h6>
-					<br />
 				</div>
 			{{/procesadores}}
 			{{^procesadores}}
@@ -121,6 +133,7 @@
 					<h5>No hay ningún procesador que se pueda eliminar</h5><br />
 				</div>
 			{{/procesadores}}
+			<br />
 		</div>
 		
 		
@@ -143,7 +156,6 @@
 							<input type="submit" value="Eliminar" class="btn btn-danger" />
 						</form>
 					</h6>
-					<br />
 				</div>
 			{{/camaras}}
 			{{^camaras}}
@@ -151,6 +163,7 @@
 					<h5>No hay ninguna cámara que se pueda eliminar</h5><br />
 				</div>
 			{{/camaras}}
+			<br />
 		</div>
 		
 		
@@ -170,7 +183,6 @@
 							<input type="submit" value="Eliminar" class="btn btn-danger" />
 						</form>
 					</h6>
-					<br />
 				</div>
 			{{/noticias}}
 			{{^noticias}}
@@ -178,6 +190,7 @@
 					<h5>No hay ninguna noticia</h5>
 				</div>
 			{{/noticias}}
+			<br /><br />
 		</div>
 	</div>
 	<script>

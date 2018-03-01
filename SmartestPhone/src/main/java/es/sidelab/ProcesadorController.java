@@ -1,5 +1,7 @@
 package es.sidelab;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,17 +22,20 @@ public class ProcesadorController {
 
 	@PostMapping("/SmartestPhone/añadir/procesador/solicitud")
 	public String añadirSmartphone(@RequestParam String marcap, @RequestParam String modelop, @RequestParam Double ghz,
-			@RequestParam Integer nucleos, Model model) {
+			@RequestParam Integer nucleos, Model model, HttpServletRequest request) {
 
 		Procesador procesador = new Procesador(marcap, modelop, ghz, nucleos);
 
 		repositorioProcesador.save(procesador);
 
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
+
 		return "añadirProcesador";
 	}
 
 	@PostMapping("/SmartestPhone/gestion/procesador")
-	public String borrarProcesador(@RequestParam long idProcesador, Model model) {
+	public String borrarProcesador(@RequestParam long idProcesador, Model model, HttpServletRequest request) {
 		
 		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
 
@@ -40,6 +45,9 @@ public class ProcesadorController {
 		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
 		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
+
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
 
 		return "gestion";
 	}

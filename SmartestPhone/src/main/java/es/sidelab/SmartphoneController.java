@@ -1,5 +1,7 @@
 package es.sidelab;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +26,7 @@ public class SmartphoneController {
 			@RequestParam Integer bateria, @RequestParam Integer almacenamiento, @RequestParam Integer ram,
 			@RequestParam Integer peso, @RequestParam String SO, @RequestParam Integer versionSO,
 			Dimensiones dimensiones, Pantalla pantalla, Camara camaraSeleccionada, Procesador procesadorSeleccionado,
-			Model model) {
+			Model model, HttpServletRequest request) {
 
 		Smartphone smartphone = new Smartphone(marca, modelo, color, bateria, almacenamiento, ram, peso, SO, versionSO,
 				camaraSeleccionada, dimensiones, pantalla, procesadorSeleccionado);
@@ -34,16 +36,22 @@ public class SmartphoneController {
 		model.addAttribute("camaras", repositorioCamara.findAll());
 		model.addAttribute("procesadores", repositorioProcesador.findAll());
 
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
+
 		return "añadirSmartphone";
 	}
 
 	@RequestMapping("/SmartestPhone/modificar")
-	public String greetingModificar(@RequestParam long id, Model model) {
+	public String greetingModificar(@RequestParam long id, Model model, HttpServletRequest request) {
 
 		model.addAttribute("smartphone", repositorioSmartphone.findByIdSmartphone(id));
 
 		model.addAttribute("camaras", repositorioCamara.findAll());
 		model.addAttribute("procesadores", repositorioProcesador.findAll());
+
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
 
 		return "modificar";
 	}
@@ -53,7 +61,8 @@ public class SmartphoneController {
 			@RequestParam String modelo, @RequestParam String color, @RequestParam Integer bateria,
 			@RequestParam Integer almacenamiento, @RequestParam Integer ram, @RequestParam Integer peso,
 			@RequestParam String SO, @RequestParam Integer versionSO, @RequestParam long idCamara,
-			@RequestParam long idProcesador, Dimensiones dimensiones, Pantalla pantalla, Model model) {
+			@RequestParam long idProcesador, Dimensiones dimensiones, Pantalla pantalla, Model model,
+			HttpServletRequest request) {
 
 		Smartphone smartphone = repositorioSmartphone.findByIdSmartphone(idSmartphone);
 		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
@@ -74,11 +83,14 @@ public class SmartphoneController {
 		smartphone.setDimensiones(dimensiones);
 		repositorioSmartphone.save(smartphone);
 
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
+
 		return "modificar";
 	}
 
 	@PostMapping("/SmartestPhone/gestion/smartphone")
-	public String borrarSmartphone(@RequestParam long idSmartphone, Model model) {
+	public String borrarSmartphone(@RequestParam long idSmartphone, Model model, HttpServletRequest request) {
 
 		Smartphone smartphone = repositorioSmartphone.findByIdSmartphone(idSmartphone);
 
@@ -88,6 +100,9 @@ public class SmartphoneController {
 		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
 		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
+
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
 
 		return "gestion";
 	}

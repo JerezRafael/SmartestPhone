@@ -1,5 +1,6 @@
 package es.sidelab;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,6 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+	public UserRepositoryAuthenticationProvider authenticationProvider;
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
@@ -16,12 +20,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/SmartestPhone/buscar/**").permitAll();
 		http.authorizeRequests().antMatchers("/SmartestPhone/detalles").permitAll();
 		http.authorizeRequests().antMatchers("/SmartestPhone/noticias").permitAll();
-		
+
 		http.authorizeRequests().antMatchers("/SmartestPhone/acceder").permitAll();
+		http.authorizeRequests().antMatchers("/SmartestPhone/registrarse/**").permitAll();
 		http.authorizeRequests().antMatchers("/SmartestPhone/erroracceder").permitAll();
-		http.authorizeRequests().antMatchers("/SmartestPhone/salir").permitAll();
 
 		// Private pages (all other pages)
+		http.authorizeRequests().antMatchers("/SmartestPhone/gestion").hasAnyRole("ADMIN");
 		http.authorizeRequests().anyRequest().authenticated();
 
 		// Login form
@@ -36,15 +41,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.logout().logoutUrl("/SmartestPhone/salir");
 		http.logout().logoutSuccessUrl("/SmartestPhone");
 
-		// Disable CSRF at the moment
-		http.csrf().disable();
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// Usuario
-		auth.inMemoryAuthentication().withUser("smartphone").password("smart").roles("USER");
-		// Administrador
-		//auth.inMemoryAuthentication().withUser("smartestphone").password("smartest").roles("ADMIN");
+		
+		// Database authentication provider
+		auth.authenticationProvider(authenticationProvider);
+		
 	}
 }

@@ -1,5 +1,7 @@
 package es.sidelab;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,7 @@ public class NoticiaController {
 
 	@PostMapping("/SmartestPhone/añadir/noticia/solicitud")
 	public String añadirNoticia(@RequestParam String titulo, @RequestParam String url,
-			@RequestParam long[] idSmartphones, Model model) {
+			@RequestParam long[] idSmartphones, Model model, HttpServletRequest request) {
 
 		Noticia noticia = new Noticia(titulo, url);
 
@@ -31,11 +33,14 @@ public class NoticiaController {
 		repositorioNoticia.save(noticia);
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
+
 		return "añadirNoticia";
 	}
 
 	@PostMapping("/SmartestPhone/gestion/noticia")
-	public String borrarNoticia(@RequestParam long idNoticia, Model model) {
+	public String borrarNoticia(@RequestParam long idNoticia, Model model, HttpServletRequest request) {
 
 		Noticia noticia = repositorioNoticia.findByIdNoticia(idNoticia);
 
@@ -45,6 +50,9 @@ public class NoticiaController {
 		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
 		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());
 		model.addAttribute("noticias", repositorioNoticia.findAllByOrderByIdNoticiaDesc());
+
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
 
 		return "gestion";
 	}

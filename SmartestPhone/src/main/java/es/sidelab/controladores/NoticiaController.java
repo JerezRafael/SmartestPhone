@@ -1,4 +1,4 @@
-package es.sidelab;
+package es.sidelab.controladores;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,8 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.sidelab.clases.Noticia;
+import es.sidelab.repositorios.CamaraRepository;
+import es.sidelab.repositorios.NoticiaRepository;
+import es.sidelab.repositorios.ProcesadorRepository;
+import es.sidelab.repositorios.SmartphoneRepository;
+
 @Controller
-public class CamaraController {
+public class NoticiaController {
 
 	@Autowired
 	private SmartphoneRepository repositorioSmartphone;
@@ -20,27 +26,32 @@ public class CamaraController {
 	@Autowired
 	private NoticiaRepository repositorioNoticia;
 
-	@PostMapping("/SmartestPhone/añadir/camara/solicitud")
-	public String añadirSmartphone(@RequestParam String marcac, @RequestParam String modeloc,
-			@RequestParam Integer megapixeles, Model model, HttpServletRequest request) {
+	@PostMapping("/SmartestPhone/añadir/noticia/solicitud")
+	public String añadirNoticia(@RequestParam String titulo, @RequestParam String url,
+			@RequestParam long[] idSmartphones, Model model, HttpServletRequest request) {
 
-		Camara camara = new Camara(marcac, modeloc, megapixeles);
+		Noticia noticia = new Noticia(titulo, url);
 
-		repositorioCamara.save(camara);
+		for (int i = 0; i < idSmartphones.length; i++) {
+			noticia.setSmartphones(repositorioSmartphone.findByIdSmartphone(idSmartphones[i]));
+		}
+
+		repositorioNoticia.save(noticia);
+		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("user", request.isUserInRole("USER"));
 
-		return "añadirCamara";
+		return "añadirNoticia";
 	}
 
-	@PostMapping("/SmartestPhone/gestion/camara")
-	public String borrarCamara(@RequestParam long idCamara, Model model, HttpServletRequest request) {
+	@PostMapping("/SmartestPhone/gestion/noticia")
+	public String borrarNoticia(@RequestParam long idNoticia, Model model, HttpServletRequest request) {
+
+		Noticia noticia = repositorioNoticia.findByIdNoticia(idNoticia);
+
+		repositorioNoticia.delete(noticia);
 		
-		Camara camara = repositorioCamara.findByIdCamara(idCamara);
-
-		repositorioCamara.delete(camara);
-
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
 		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());

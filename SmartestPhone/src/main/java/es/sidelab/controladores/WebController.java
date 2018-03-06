@@ -1,4 +1,4 @@
-package es.sidelab;
+package es.sidelab.controladores;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import es.sidelab.clases.Usuario;
+import es.sidelab.repositorios.CamaraRepository;
+import es.sidelab.repositorios.NoticiaRepository;
+import es.sidelab.repositorios.ProcesadorRepository;
+import es.sidelab.repositorios.SmartphoneRepository;
+import es.sidelab.repositorios.UsuarioRepository;
 
 @Controller
 public class WebController {
@@ -192,9 +199,21 @@ public class WebController {
 	@PostMapping("/SmartestPhone/registrarse/solicitud")
 	public String registrarUsuario(@RequestParam String nombreusuario, @RequestParam String contraseña, Model model, HttpServletRequest request) {
 		
-		Usuario usuario = new Usuario(nombreusuario, contraseña, "ROLE_USER");
-
-		repositorioUsuario.save(usuario);
+		Usuario user = repositorioUsuario.findByNombre(nombreusuario);
+		
+		if (user != null) {
+			
+			model.addAttribute("usuario", user.getNombre());
+			
+			return "registrarse";
+		}
+		
+		else {
+		
+			Usuario usuario = new Usuario(nombreusuario, contraseña, "ROLE_USER");
+	
+			repositorioUsuario.save(usuario);
+		}
 
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("user", request.isUserInRole("USER"));

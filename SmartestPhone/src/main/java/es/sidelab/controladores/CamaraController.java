@@ -1,4 +1,4 @@
-package es.sidelab;
+package es.sidelab.controladores;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,8 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.sidelab.clases.Camara;
+import es.sidelab.repositorios.CamaraRepository;
+import es.sidelab.repositorios.NoticiaRepository;
+import es.sidelab.repositorios.ProcesadorRepository;
+import es.sidelab.repositorios.SmartphoneRepository;
+
 @Controller
-public class ProcesadorController {
+public class CamaraController {
 
 	@Autowired
 	private SmartphoneRepository repositorioSmartphone;
@@ -20,27 +26,27 @@ public class ProcesadorController {
 	@Autowired
 	private NoticiaRepository repositorioNoticia;
 
-	@PostMapping("/SmartestPhone/añadir/procesador/solicitud")
-	public String añadirSmartphone(@RequestParam String marcap, @RequestParam String modelop, @RequestParam Double ghz,
-			@RequestParam Integer nucleos, Model model, HttpServletRequest request) {
+	@PostMapping("/SmartestPhone/añadir/camara/solicitud")
+	public String añadirSmartphone(@RequestParam String marcac, @RequestParam String modeloc,
+			@RequestParam Integer megapixeles, Model model, HttpServletRequest request) {
 
-		Procesador procesador = new Procesador(marcap, modelop, ghz, nucleos);
+		Camara camara = new Camara(marcac, modeloc, megapixeles);
 
-		repositorioProcesador.save(procesador);
+		repositorioCamara.save(camara);
 
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("user", request.isUserInRole("USER"));
 
-		return "añadirProcesador";
+		return "añadirCamara";
 	}
 
-	@PostMapping("/SmartestPhone/gestion/procesador")
-	public String borrarProcesador(@RequestParam long idProcesador, Model model, HttpServletRequest request) {
+	@PostMapping("/SmartestPhone/gestion/camara")
+	public String borrarCamara(@RequestParam long idCamara, Model model, HttpServletRequest request) {
 		
-		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
+		Camara camara = repositorioCamara.findByIdCamara(idCamara);
 
-		repositorioProcesador.delete(procesador);
-		
+		repositorioCamara.delete(camara);
+
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
 		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());

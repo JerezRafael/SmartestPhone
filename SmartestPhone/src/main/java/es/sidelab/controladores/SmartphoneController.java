@@ -1,4 +1,4 @@
-package es.sidelab;
+package es.sidelab.controladores;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,6 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import es.sidelab.clases.Camara;
+import es.sidelab.clases.Dimensiones;
+import es.sidelab.clases.Pantalla;
+import es.sidelab.clases.Procesador;
+import es.sidelab.clases.Smartphone;
+import es.sidelab.repositorios.CamaraRepository;
+import es.sidelab.repositorios.NoticiaRepository;
+import es.sidelab.repositorios.ProcesadorRepository;
+import es.sidelab.repositorios.SmartphoneRepository;
 
 @Controller
 public class SmartphoneController {

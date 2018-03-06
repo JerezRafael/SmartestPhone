@@ -1,4 +1,4 @@
-package es.sidelab;
+package es.sidelab.configuracion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import es.sidelab.clases.Usuario;
+import es.sidelab.repositorios.UsuarioRepository;
 
 @Component
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {

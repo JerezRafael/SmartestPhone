@@ -1,4 +1,4 @@
-package es.sidelab;
+package es.sidelab.controladores;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,8 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.sidelab.clases.Procesador;
+import es.sidelab.repositorios.CamaraRepository;
+import es.sidelab.repositorios.NoticiaRepository;
+import es.sidelab.repositorios.ProcesadorRepository;
+import es.sidelab.repositorios.SmartphoneRepository;
+
 @Controller
-public class NoticiaController {
+public class ProcesadorController {
 
 	@Autowired
 	private SmartphoneRepository repositorioSmartphone;
@@ -20,31 +26,26 @@ public class NoticiaController {
 	@Autowired
 	private NoticiaRepository repositorioNoticia;
 
-	@PostMapping("/SmartestPhone/añadir/noticia/solicitud")
-	public String añadirNoticia(@RequestParam String titulo, @RequestParam String url,
-			@RequestParam long[] idSmartphones, Model model, HttpServletRequest request) {
+	@PostMapping("/SmartestPhone/añadir/procesador/solicitud")
+	public String añadirSmartphone(@RequestParam String marcap, @RequestParam String modelop, @RequestParam Double ghz,
+			@RequestParam Integer nucleos, Model model, HttpServletRequest request) {
 
-		Noticia noticia = new Noticia(titulo, url);
+		Procesador procesador = new Procesador(marcap, modelop, ghz, nucleos);
 
-		for (int i = 0; i < idSmartphones.length; i++) {
-			noticia.setSmartphones(repositorioSmartphone.findByIdSmartphone(idSmartphones[i]));
-		}
-
-		repositorioNoticia.save(noticia);
-		model.addAttribute("smartphones", repositorioSmartphone.findAll());
+		repositorioProcesador.save(procesador);
 
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("user", request.isUserInRole("USER"));
 
-		return "añadirNoticia";
+		return "añadirProcesador";
 	}
 
-	@PostMapping("/SmartestPhone/gestion/noticia")
-	public String borrarNoticia(@RequestParam long idNoticia, Model model, HttpServletRequest request) {
+	@PostMapping("/SmartestPhone/gestion/procesador")
+	public String borrarProcesador(@RequestParam long idProcesador, Model model, HttpServletRequest request) {
+		
+		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
 
-		Noticia noticia = repositorioNoticia.findByIdNoticia(idNoticia);
-
-		repositorioNoticia.delete(noticia);
+		repositorioProcesador.delete(procesador);
 		
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());

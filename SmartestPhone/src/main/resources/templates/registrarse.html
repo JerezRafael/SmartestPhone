@@ -78,6 +78,11 @@
 				<p>
 					Usuario:
 					<input type="text" name="nombreusuario" class="form-control" required />
+						{{#usuario}}
+						<div class="alert alert-warning">
+							<Strong>Aviso</Strong> Nombre de usuario en uso
+						</div>
+						{{/usuario}}
 				</p>
 				<p>
 					Contraseña: 

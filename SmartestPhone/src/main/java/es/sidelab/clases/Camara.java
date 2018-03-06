@@ -1,4 +1,4 @@
-package es.sidelab;
+package es.sidelab.clases;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package es.sidelab;
+package es.sidelab.configuracion;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

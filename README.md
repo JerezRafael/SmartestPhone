@@ -1,8 +1,8 @@
 # SmartestPhone
 ### Descripcion de la web
 SmartestPhone es una web para comparar teléfonos móviles (a partir de ahora smartphones) que se basará en las aportaciones de los usuarios introduciendo smartphones nuevos que no esten en la base de datos para asi ampliarla. Se podrán consultar las especificaciones técnicas de cada smartphone en apartados ya creados (ej. dimensiones de pantalla, procesador, cámara) y también ver las últimas noticias añadidas por los usuarios del smarphone.
--  Parte Pública: Se podrán ver las características y noticias de cada uno.
--  Parte Privada: Se podrán editar los smartphones, añadirlos a favoritos de la cuenta, añadir noticias y consultar las actividades de la cuenta.
+-  Parte Pública: Se podrán ver las características y noticias de cada smartphone.
+-  Parte Privada: Se podrán crear y editar smartphones, añadir procesadores, camaras y noticias y borrar cualquiera de estos.
 ### Entidades principales
 - Usuario: Los usuarios pueden añadir nuevos smartphones, procesadores, cámaras y noticias a la base de datos.
 - Administrador: Puede borrar cualquier smartphone, procesador, cámara y noticia del servidor asi como cualquier cosa que pueda hacer el usuario normal.
@@ -10,7 +10,7 @@ SmartestPhone es una web para comparar teléfonos móviles (a partir de ahora sm
 - Procesador y cámara - Son entidades separadas del smartphone que pueden ser utilizables por varios smartphones a la vez y no dependen de estos.
 - Noticias: Son las noticias añadidas por los usuarios a cada smartphone o marca.
 ### Servicio Interno
-La web tendrá un apartado de notificaciones para que se avise al usuario cuando se modifique la información de un smartphone, haya una nueva noticia o se añada algun smartphone nuevo a la marca que el sigue.
+La web tendrá un servicio de mail que enviará un correo electronico a cada usuario cuando se registre un nuevo smartphone o una nueva noticia.
 ### Integrantes
 - Rafael Jerez Molinero
   r.jerez@alumnos.urjc.es

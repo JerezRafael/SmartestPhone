@@ -150,14 +150,15 @@
 				</div>
 				<div class="col-sm-3">
 					<b>Dimensiones</b><br /> 
-					<input type="number" name="ancho" class="form-control" size="4" step=".01" maxlength="6" min="1" max="400" required /> 
-					Alto 
-					<input type="number" name="alto" class="form-control" size="2" step=".01" maxlength="6" min="1" max="400" required /> 
-					Ancho 
-					<input type="number" name="largo" class="form-control" size="1" step=".01" maxlength="6" min="1" max="400" required /> 
-					Largo
+					<input type="number" name="ancho" class="form-control" size="3" maxlength="6" min="1" max="400" required /> 
+					Alto <br /> 
+					<input type="number" name="alto" class="form-control" size="2" maxlength="6" min="1" max="400" required /> 
+					Ancho <br /> 
+					<input type="number" name="largo" class="form-control" size="1" maxlength="6" min="1" max="400" required /> 
+					Largo <br /> 
 				</div>
 			</div>
+			<input type="hidden" name="_csrf" value="{{token}}" />
 			<input type="submit" value="Añadir" class="btn btn-success" />
 		</form>
 	</div>

@@ -1,7 +1,15 @@
 package es.sidelab.ServidorMail.clases;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Dimensiones {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idDimensiones;
 	private Integer ancho;
 	private Integer alto;

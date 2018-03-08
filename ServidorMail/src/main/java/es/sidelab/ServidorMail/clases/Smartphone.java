@@ -3,10 +3,22 @@ package es.sidelab.ServidorMail.clases;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
 public class Smartphone {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idSmartphone;
 	private String marca;
 	private String modelo;
@@ -17,10 +29,15 @@ public class Smartphone {
 	private Integer peso;
 	private String SO;
 	private Integer versionSO;
+	@ManyToOne
 	private Camara camara;
+	@OneToOne(cascade = CascadeType.ALL)
 	private Dimensiones dimensiones;
+	@OneToOne(cascade = CascadeType.ALL)
 	private Pantalla pantalla;
+	@ManyToOne
 	private Procesador procesador;
+	@ManyToMany(mappedBy = "smartphones")
 	@JsonIgnore
 	private List<Noticia> noticias = new ArrayList<Noticia>();
 

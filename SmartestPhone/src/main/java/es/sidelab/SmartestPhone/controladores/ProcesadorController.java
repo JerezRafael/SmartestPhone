@@ -39,11 +39,11 @@ public class ProcesadorController {
 
 	@PostMapping("/SmartestPhone/gestion/procesador")
 	public String borrarProcesador(@RequestParam long idProcesador, Model model, HttpServletRequest request) {
-		
+
 		Procesador procesador = repositorioProcesador.findByIdProcesador(idProcesador);
 
 		repositorioProcesador.delete(procesador);
-		
+
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());
 		model.addAttribute("camaras", repositorioCamara.findBySmartphonesIsNull());
 		model.addAttribute("procesadores", repositorioProcesador.findBySmartphonesIsNull());

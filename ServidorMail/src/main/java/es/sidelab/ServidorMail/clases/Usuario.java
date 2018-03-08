@@ -1,26 +1,32 @@
 package es.sidelab.ServidorMail.clases;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
 public class Usuario {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long idUsuario;
 	private String nombre;
 	private String hashContraseña;
 	private String mail;
+
+	@ElementCollection(fetch = FetchType.EAGER)
 	@JsonIgnore
 	private List<String> roles;
 
 	public Usuario() {
-		
-	}
 
-	public Usuario(String nombre, String contraseña, String... roles) {
-		this.nombre = nombre;
-		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
 	public String getNombre() {

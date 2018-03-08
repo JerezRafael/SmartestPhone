@@ -11,7 +11,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public UserRepositoryAuthenticationProvider authenticationProvider;
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
@@ -45,9 +45,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		
+
 		// Database authentication provider
 		auth.authenticationProvider(authenticationProvider);
-		
+
 	}
 }

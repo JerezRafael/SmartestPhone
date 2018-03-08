@@ -30,6 +30,7 @@ public class Usuario {
 	private List<String> roles;
 
 	public Usuario() {
+
 	}
 
 	public Usuario(String nombre, String contraseña, String mail, String... roles) {

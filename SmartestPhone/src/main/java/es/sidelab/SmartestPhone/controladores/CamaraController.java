@@ -39,7 +39,7 @@ public class CamaraController {
 
 	@PostMapping("/SmartestPhone/gestion/camara")
 	public String borrarCamara(@RequestParam long idCamara, Model model, HttpServletRequest request) {
-		
+
 		Camara camara = repositorioCamara.findByIdCamara(idCamara);
 
 		repositorioCamara.delete(camara);

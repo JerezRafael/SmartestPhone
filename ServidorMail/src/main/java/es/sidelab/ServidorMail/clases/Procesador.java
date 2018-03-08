@@ -2,15 +2,25 @@ package es.sidelab.ServidorMail.clases;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
 public class Procesador {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idProcesador;
 	private String marcap;
 	private String modelop;
 	private Double ghz;
 	private Integer nucleos;
+	@OneToMany(mappedBy = "procesador")
 	@JsonIgnore
 	private List<Smartphone> smartphones;
 

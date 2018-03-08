@@ -2,14 +2,24 @@ package es.sidelab.ServidorMail.clases;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
 public class Camara {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idCamara;
 	private String marcac;
 	private String modeloc;
 	private Integer megapixeles;
+	@OneToMany(mappedBy = "camara")
 	@JsonIgnore
 	private List<Smartphone> smartphones;
 

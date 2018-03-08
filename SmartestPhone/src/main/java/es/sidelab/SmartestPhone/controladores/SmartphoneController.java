@@ -1,7 +1,5 @@
 package es.sidelab.SmartestPhone.controladores;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import es.sidelab.SmartestPhone.clases.Dimensiones;
 import es.sidelab.SmartestPhone.clases.Pantalla;
 import es.sidelab.SmartestPhone.clases.Procesador;
 import es.sidelab.SmartestPhone.clases.Smartphone;
-import es.sidelab.SmartestPhone.clases.Usuario;
 import es.sidelab.SmartestPhone.repositorios.*;
 
 @Controller
@@ -31,8 +28,6 @@ public class SmartphoneController {
 	private CamaraRepository repositorioCamara;
 	@Autowired
 	private NoticiaRepository repositorioNoticia;
-	@Autowired
-	private UsuarioRepository repositorioUsuario;
 
 	@PostMapping("/SmartestPhone/añadir/solicitud")
 	public String añadirSmartphone(@RequestParam String marca, @RequestParam String modelo, @RequestParam String color,
@@ -45,21 +40,10 @@ public class SmartphoneController {
 				camaraSeleccionada, dimensiones, pantalla, procesadorSeleccionado);
 
 		repositorioSmartphone.save(smartphone);
-		
-		RestTemplate restTemplateUsuario = new RestTemplate();
-		
-		restTemplateUsuario.delete("http://localhost:9091/mail/usuario/init");
-		String urlRESTUsuarios = "http://localhost:9091/mail/usuario";
 
-		for (Usuario usuario : repositorioUsuario.findAll()) {	// solucion que podria estar bien
-			restTemplateUsuario.postForObject(urlRESTUsuarios, usuario, Usuario.class);
-		}
-		
-		restTemplateUsuario.postForObject("http://localhost:9091/mail/usuario/init", repositorioUsuario.findAll(), List<Usuario>.class);	// como deberia ser
-		
 		RestTemplate restTemplateSmartphone = new RestTemplate();
 
-		String urlREST="http://localhost:9091/mail/smartphone";
+		String urlREST = "http://localhost:9091/mail/smartphone";
 		restTemplateSmartphone.postForObject(urlREST, smartphone, Smartphone.class);
 
 		model.addAttribute("camaras", repositorioCamara.findAll());

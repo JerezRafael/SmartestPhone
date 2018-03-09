@@ -34,8 +34,8 @@ public class MailController {
 	@Autowired
 	private UsuarioRepository repositorioUsuario;
 
-	private final String username = "smartestphoneweb@gmail.com";
-	private final String password = "smartphone";
+	private final String usuario = "smartestphoneweb@gmail.com";
+	private final String contraseña = "smartphone";
 	private final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
 
 	@PostMapping(value = "/smartphone")
@@ -47,7 +47,7 @@ public class MailController {
 		try {
 			Session session = Session.getDefaultInstance(propiedades, new Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(username, password);
+					return new PasswordAuthentication(usuario, contraseña);
 				}
 			});
 
@@ -57,7 +57,7 @@ public class MailController {
 			}
 
 			Message mensaje = new MimeMessage(session);
-			mensaje.setFrom(new InternetAddress(username));
+			mensaje.setFrom(new InternetAddress(usuario));
 
 			for (Usuario usuario : usuarios) { // Añadimos las direcciones al mensaje
 				mensaje.addRecipients(Message.RecipientType.TO, InternetAddress.parse(usuario.getMail()));
@@ -91,12 +91,12 @@ public class MailController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Noticia mailNoticia(@RequestBody Noticia noticia) {
 
-		Properties props = iniciarMail();
+		Properties propiedades = iniciarMail();
 
 		try {
-			Session session = Session.getDefaultInstance(props, new Authenticator() {
+			Session session = Session.getDefaultInstance(propiedades, new Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(username, password);
+					return new PasswordAuthentication(usuario, contraseña);
 				}
 			});
 
@@ -106,7 +106,7 @@ public class MailController {
 			}
 
 			Message mensaje = new MimeMessage(session);
-			mensaje.setFrom(new InternetAddress(username));
+			mensaje.setFrom(new InternetAddress(usuario));
 
 			for (Usuario usuario : usuarios) {
 				mensaje.addRecipients(Message.RecipientType.TO, InternetAddress.parse(usuario.getMail()));
@@ -117,6 +117,8 @@ public class MailController {
 					+ "https://127.0.0.1:9090/SmartestPhone/noticias");
 			mensaje.setSentDate(new Date());
 			Transport.send(mensaje);
+			// Mensaje enviado
+			
 			Address[] addresses = mensaje.getAllRecipients();
 			String[] direcciones = new String[addresses.length];
 			for (int i = 0; i < addresses.length; i++) {

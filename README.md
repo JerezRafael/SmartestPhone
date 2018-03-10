@@ -23,50 +23,130 @@ La web tendrá un servicio de mail que enviará un correo electronico a cada usu
 
 ### Diagrama de navegación
 Aquí se puede observar como se puede pasar de una página a otra en la web.
-![Diagrama de navegación](https://lh3.googleusercontent.com/-iElodFqOi0w/Wpae7oBOeJI/AAAAAAAALns/FNO693kfao0tyxfTAo530u8ApfOhkOeJwCJoC/w663-h393-n-rw/diagNavegFase2.jpg)
+![Diagrama de navegación](https://i.imgur.com/gc86CO4.jpg)
 
 ### Modelo de datos
 Modelo representando las tablas creadas en MySQL.
-![Modelo datos](https://lh3.googleusercontent.com/-JczxlnhkGZc/WpafAYZgeBI/AAAAAAAALoA/M1MMjWh4S88V9cfbiEz90fQd1T8IYCXjQCJoC/w663-h612-n-rw/modelodatosFase2.png)
+![Modelo datos](https://i.imgur.com/zi3HL3O.png)
 
 ### Diagrama entidad/relación
 Modelo E/R en el que un smartphone esta compuesto de una pantalla, unas dimensiones, una cámara, un procesador y forma parte de 0 o N noticias. Una cámara puede formar parte de 0 o N smartphones, al igual que un procesador, y una noticia puede hablar de 1 o N smartphones.
-![Diagrama E/R](https://lh3.googleusercontent.com/-_UwcAcF-TpM/WpaiEXOWCLI/AAAAAAAALo4/iYuWGd2bEgUNW9UruRF-g-t7z2Sy_sg6gCJoC/w663-h250-n-rw/diagERFase2.jpg)
+![Diagrama E/R](https://i.imgur.com/ldAAT5B.jpg)
 
 ### Páginas web:
 
 #### Inicio
-Es la página inicial, desde esta se puede acceder a todas las demás, podemos buscar un smartphone y acceder a la web de detalles y podemos tambien ir a añadir un nuevo smartphone, procesador, cámara o noticia y a la página de gestión.
-![inicio](https://i.imgur.com/r8BNSQ7.png)
+Es la página inicial, desde esta se puede acceder a todas las demás, podemos buscar un smartphone y acceder a la web de detalles y podemos tambien ir a añadir un nuevo smartphone, procesador, cámara o noticia, a la página de gestión y ver las noticias.
+![inicio](https://i.imgur.com/lHseUbj.png)
 
 #### Añadir smartphone
 Esta web es unicamente para añadir un smartphone nuevo, una vez puestas todas las caracteristicas se puede añadir y ya volver a la página de inicio.
-![añadirSmartphone](https://i.imgur.com/Fdv6IDq.png)
+![añadirSmartphone](https://i.imgur.com/7C1yd3N.png)
 
 #### Añadir camara
 Esta pantalla permite añadir una cámara. Todas las camaras que se vayan añadiendo se podrán reutilizar desde la pantalla de añadir smartphone.
-![añadirCamara](https://i.imgur.com/32O4XMW.png)
+![añadirCamara](https://i.imgur.com/fwyDRhh.png)
 
 #### Añadir procesador
 Esta pantalla permite añadir un procesador. Al igual que las cámaras, todos los procesadores que se vayan añadiendo se podrán reutilizar desde la pantalla de añadir smartphone.
-![añadirProcesador](https://i.imgur.com/9PEcSrP.png)
+![añadirProcesador](https://i.imgur.com/ymwCPel.png)
 
 #### Añadir noticias
 Esta pantalla permite añadir una noticia. Se deberá rellenar un título de noticia, añadir un enlace que redireccione a la noticia y uno o varios smartphones con los que esté relacionada dicha noticia.
-![añadirNoticias](https://i.imgur.com/IViyuc3.png)
+![añadirNoticias](https://i.imgur.com/ZwNBJeN.png)
 
 #### Detalles
 En esta web se ven todas las características de un smartphone.
-![detalles](https://i.imgur.com/kJl2Rcf.png)
+![detalles](https://i.imgur.com/MwD1OD0.png)
 
 #### Modificar
-En esta web se pueden modificar todas las características de un smartphone
-![modificar](https://i.imgur.com/m3ceM2Y.png)
+En esta web se pueden modificar todas las características de un smartphone.
+![modificar](https://i.imgur.com/7ZMhhuj.png)
 
 #### Noticias
-Pantalla en la que se podrán consultar todas las noticas o solo las relacionadas con cada smartphone.
-![noticias](https://i.imgur.com/sb9GfNL.png)
+Pantalla en la que se podrán consultar todas las noticias o solo las relacionadas con cada smartphone.
+![noticias](https://i.imgur.com/exXhoom.png)
 
 #### Gestión
 Página en la que solo puede acceder el administrador y que te permite borrar smartphones, cámaras, procesadores y noticias.
-![gestion](https://i.imgur.com/qv4w9ZN.png)
+![gestion](https://i.imgur.com/UOcnkkD.png)
+
+## Fase 3
+
+### Diagrama de navegación
+Aquí se puede observar como se puede pasar de una página a otra en la web, pero como existen diferentes tipos de usuarios vamos a mostrar la navegación para cada tipo:
+
+#### Usuario desconocido
+![usuarioDesconocido](https://i.imgur.com/GhF8g7n.jpg)
+
+#### Usuario registrado
+![usuarioRegistrado](https://i.imgur.com/VlhXqIB.jpg)
+
+#### Usuario administrador
+![usuarioAdministrador](https://i.imgur.com/ih2dXoD.jpg)
+
+### Diagrama de clases y templates
+![diagClasesTemplates](https://i.imgur.com/9GT2l8w.jpg)
+Azul = Controladores; 
+Rosa = Templates; 
+Naranja = Repositorios; 
+Verde claro = Entidades; 
+Verde oscuro = Clases normales.
+
+### Páginas web:
+
+#### Inicio
+Es la página inicial, desde esta se puede acceder a todas las demás, podemos buscar un smartphone y acceder a la web de detalles y podemos tambien ir a añadir un nuevo smartphone, procesador, cámara o noticia (antes se tiene que iniciar sesión, o en caso de no tener cuenta, registrarse), ver las noticias y también ir a la página de gestión (sólo aparece si se ha iniciado sesión como administrador).
+![inicio](https://i.imgur.com/enE6nFz.png)
+
+#### Añadir smartphone
+Esta web es unicamente para añadir un smartphone nuevo, una vez puestas todas las caracteristicas se puede añadir y ya volver a la página de inicio.
+![añadirSmartphone](https://i.imgur.com/tfcyhFi.png)
+
+#### Añadir camara
+Esta pantalla permite añadir una cámara. Todas las camaras que se vayan añadiendo se podrán reutilizar desde la pantalla de añadir smartphone.
+![añadirCamara](https://i.imgur.com/meTkVr6.png)
+
+#### Añadir procesador
+Esta pantalla permite añadir un procesador. Al igual que las cámaras, todos los procesadores que se vayan añadiendo se podrán reutilizar desde la pantalla de añadir smartphone.
+![añadirProcesador](https://i.imgur.com/xUWOdtK.png)
+
+#### Añadir noticias
+Esta pantalla permite añadir una noticia. Se deberá rellenar un título de noticia, añadir un enlace que redireccione a la noticia y uno o varios smartphones con los que esté relacionada dicha noticia.
+![añadirNoticias](https://i.imgur.com/B0ZTHbD.png)
+
+#### Detalles
+En esta web se ven todas las características de un smartphone.
+![detalles](https://i.imgur.com/NFtDkci.png)
+
+#### Modificar
+En esta web se pueden modificar todas las características de un smartphone.
+![modificar](https://i.imgur.com/ZWyOYBa.png)
+
+#### Noticias
+Pantalla en la que se podrán consultar todas las noticias o sólo las relacionadas con cada smartphone.
+![noticias](https://i.imgur.com/qJjSSxA.png)
+
+#### Gestión
+Página en la que solo puede acceder el administrador y que te permite borrar smartphones, cámaras, procesadores y noticias.
+![gestion](https://i.imgur.com/e0tTrSE.png)
+
+#### Iniciar sesión
+Página para poder iniciar sesión ya se tenga rol de usuario o rol de administrador. Te permite añadir smartphones, cámaras, procesadores y noticias si eres usuario normal y si eres adminitrador además, entrar en la web de gestión.
+![iniciarSesion](https://i.imgur.com/mHZ5u5q.png)
+
+#### Registarse
+Página para registrarse si no se tiene cuenta.
+![registrarse](https://i.imgur.com/XWHhmOA.png)
+
+#### Cerrar sesión
+Página para cerrar la sesión.
+![cerrarSesion](https://i.imgur.com/T6Ug4I2.png)
+
+### Interfaz entre el servicio y la aplicación web
+
+La interfaz entre el servicio interno y la aplicación web consiste en un controlador REST en el servidor de mail por el que la aplicación web mediante un cliente REST le manda únicamente un objeto smartphone o noticia, dependiendo del caso, al crearse en la web para que el servicio acceda a la base de datos, obtenga todas las direcciones de email de los usuarios y les envíe algunos detalles del objeto pasado por parámetro, como la marca y el modelo si es un smartphone o el título y la url de la noticia en el segundo caso. 
+
+Los objetos pasados por parámetro están en memoria hasta que se resuelva la solicitud, no se guardan en ningún sitio y los emails se obtienen de la base de datos mediante el repositorio de los usuarios.
+
+### Instrucciones para desplegar la aplicación

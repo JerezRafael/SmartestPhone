@@ -77,13 +77,13 @@ Página en la que solo puede acceder el administrador y que te permite borrar sm
 Aquí se puede observar como se puede pasar de una página a otra en la web, pero como existen diferentes tipos de usuarios vamos a mostrar la navegación para cada tipo:
 
 #### Usuario desconocido
-![usuarioDesconocido](https://i.imgur.com/GhF8g7n.jpg)
+![usuarioDesconocido](https://i.imgur.com/dprZDCc.jpg)
 
 #### Usuario registrado
-![usuarioRegistrado](https://i.imgur.com/VlhXqIB.jpg)
+![usuarioRegistrado](https://i.imgur.com/aogSsh1.jpg)
 
 #### Usuario administrador
-![usuarioAdministrador](https://i.imgur.com/ih2dXoD.jpg)
+![usuarioAdministrador](https://i.imgur.com/W6rd7SA.jpg)
 
 ### Diagrama de clases y templates
 ![diagClasesTemplates](https://i.imgur.com/9GT2l8w.jpg)

@@ -217,7 +217,7 @@ Los objetos pasados por parámetro están en memoria hasta que se resuelva la so
  * Crear los dos jar con Run as -> build... -> Goals -> clean package
  * Copiar los dos jar en la carpeta vagrant del host
  * `cd /vagrant`
- * `java -jar ServidorMail-0.0.1-SNAPSHOT.jar`
+ * `java -jar ServidorMail-0.0.1-SNAPSHOT.jar --contrasena=smartphone`
  * Paralelamente `java -jar SmartestPhone-0.0.1-SNAPSHOT.jar`
  * En el buscador del host `https://192.168.33.10:9090/SmartestPhone`
  

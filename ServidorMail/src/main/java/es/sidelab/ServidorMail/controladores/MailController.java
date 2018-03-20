@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import es.sidelab.ServidorMail.clases.Noticia;
 import es.sidelab.ServidorMail.clases.Smartphone;
@@ -31,11 +32,13 @@ import es.sidelab.ServidorMail.repositorios.UsuarioRepository;
 @RequestMapping("/mail")
 public class MailController {
 
+	@Value("${contrasena}")
+	private String contrasena;
+	
 	@Autowired
 	private UsuarioRepository repositorioUsuario;
 
 	private final String usuario = "smartestphoneweb@gmail.com";
-	private final String contraseña = "smartphone";
 	private final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
 
 	@PostMapping(value = "/smartphone")
@@ -46,8 +49,9 @@ public class MailController {
 
 		try {
 			Session session = Session.getDefaultInstance(propiedades, new Authenticator() {
+				private final String springContraseña = System.getProperty("contrasena");
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(usuario, contraseña);
+					return new PasswordAuthentication(usuario, springContraseña);
 				}
 			});
 
@@ -60,7 +64,7 @@ public class MailController {
 			mensaje.setFrom(new InternetAddress(usuario));
 
 			for (Usuario usuario : usuarios) { // Añadimos las direcciones al mensaje
-				mensaje.addRecipients(Message.RecipientType.TO, InternetAddress.parse(usuario.getMail()));
+				mensaje.addRecipients(Message.RecipientType.BCC, InternetAddress.parse(usuario.getMail()));
 			}
 
 			mensaje.setSubject("¡Nuevo smartphone en SmartestPhone!");
@@ -95,6 +99,7 @@ public class MailController {
 
 		try {
 			Session session = Session.getDefaultInstance(propiedades, new Authenticator() {
+				private final String contraseña = System.getProperty("contraseña", "mi contraseña");
 				protected PasswordAuthentication getPasswordAuthentication() {
 					return new PasswordAuthentication(usuario, contraseña);
 				}

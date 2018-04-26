@@ -221,4 +221,22 @@ Los objetos pasados por parámetro están en memoria hasta que se resuelva la so
  * Paralelamente `java -jar SmartestPhone-0.0.1-SNAPSHOT.jar`
  * En el buscador del host `https://192.168.33.10:9090/SmartestPhone`
  
+ ## Fase 4
  
+ ### Diagrama de clases y templates
+![diagClasesTemplates](https://i.imgur.com/9GT2l8w.jpg)
+Azul = Controladores; 
+Rosa = Templates; 
+Naranja = Repositorios; 
+Verde claro = Entidades; 
+Verde oscuro = Clases normales.
+
+### Interfaz entre el servicio y la aplicacion web
+
+La interfaz entre el servicio interno y la aplicación web consiste en un controlador REST en el servidor de mail por el que la aplicación web mediante un cliente REST le manda únicamente un objeto smartphone o noticia, dependiendo del caso, al crearse en la web para que el servicio acceda a la base de datos, obtenga todas las direcciones de email de los usuarios y les envíe algunos detalles del objeto pasado por parámetro, como la marca y el modelo si es un smartphone o el título y la url de la noticia en el segundo caso. 
+
+Los objetos pasados por parámetro están en memoria hasta que se resuelva la solicitud, no se guardan en ningún sitio y los emails se obtienen de la base de datos mediante el repositorio de los usuarios.
+
+### Diagrama de Infraestructura
+
+![diagInfra](https://i.imgur.com/6NSWfmI.jpg)

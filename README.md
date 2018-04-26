@@ -240,3 +240,7 @@ Los objetos pasados por parámetro están en memoria hasta que se resuelva la so
 ### Diagrama de Infraestructura
 
 ![diagInfra](https://i.imgur.com/6NSWfmI.jpg)
+
+### Video explicativo de la aplicacion Web
+
+https://youtu.be/YxGz9y6jLy4

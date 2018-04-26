@@ -66,7 +66,7 @@ public class MailController {
 			mensaje.setSubject("¡Nuevo smartphone en SmartestPhone!");
 			mensaje.setText("¡Se ha registrado un nuevo smartphone en nuestra web!\n" + smartphone.getMarca() + " "
 					+ smartphone.getModelo() + "\n\n¡Entra a nuestra web y descubre los detalles!\n"
-					+ "https://127.0.0.1:9090/SmartestPhone/detalles?idSmartphone=" + smartphone.getIdSmartPhone());
+					+ smartphone.getIdSmartPhone());
 			mensaje.setSentDate(new Date());
 			Transport.send(mensaje);
 			// Mensaje enviado
@@ -112,13 +112,12 @@ public class MailController {
 				mensaje.addRecipients(Message.RecipientType.TO, InternetAddress.parse(usuario.getMail()));
 			}
 			mensaje.setSubject("¡Nueva noticia en SmartestPhone!");
-			mensaje.setText("¡Se ha introducido una nueva noticia en nuestra web!\n" + noticia.getTitulo() + "\n"
-					+ noticia.getUrl() + "\n\n¡Entra a nuestra web y descubre los detalles!\n"
-					+ "https://127.0.0.1:9090/SmartestPhone/noticias");
+			mensaje.setText("¡Se ha introducido una nueva noticia en nuestra web!\n" + noticia.getTitulo()
+					+ "\n\n¡Entra a nuestra web y descubre los detalles!");
 			mensaje.setSentDate(new Date());
 			Transport.send(mensaje);
 			// Mensaje enviado
-			
+
 			Address[] addresses = mensaje.getAllRecipients();
 			String[] direcciones = new String[addresses.length];
 			for (int i = 0; i < addresses.length; i++) {

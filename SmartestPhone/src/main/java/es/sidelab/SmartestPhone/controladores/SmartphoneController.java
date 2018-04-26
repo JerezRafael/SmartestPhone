@@ -43,7 +43,7 @@ public class SmartphoneController {
 
 		RestTemplate restTemplateSmartphone = new RestTemplate();
 
-		String urlREST = "http://localhost:9091/mail/smartphone";
+		String urlREST = "http://192.168.33.20:9091/mail/smartphone";
 		restTemplateSmartphone.postForObject(urlREST, smartphone, Smartphone.class);
 
 		model.addAttribute("camaras", repositorioCamara.findAll());

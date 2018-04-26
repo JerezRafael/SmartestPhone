@@ -38,7 +38,7 @@ public class NoticiaController {
 
 		RestTemplate restTemplateNoticia = new RestTemplate();
 
-		String urlREST = "http://localhost:9091/mail/noticia";
+		String urlREST = "http://192.168.33.20:9091/mail/noticia";
 		restTemplateNoticia.postForObject(urlREST, noticia, Noticia.class);
 
 		model.addAttribute("smartphones", repositorioSmartphone.findAll());

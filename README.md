@@ -44,6 +44,11 @@
       - [1. Instalacion de VirtualBox](#1-instalacion-de-virtualbox)
       - [2. Instalacion de Vagrant](#2-instalacion-de-vagrant)
       - [3. Creacion e inicializacion de maquina virtual](#3-creacion-e-inicializacion-de-maquina-virtual)
+  * [Fase 4](#fase-4)
+    + [Diagrama de clases y templates](#diagrama-de-clases-y-templates)
+    + [Interfaz entre el servicio y la aplicacion web](#interfaz-entre-el-servicio-y-la-aplicacion-web)
+    + [Diagrama de Infraestructura](#diagrama-de-infraestructura)
+    + [Video explicativo de la aplicacion Web](#video-explicativo-de-la-aplicacion-web)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -221,9 +226,9 @@ Los objetos pasados por parámetro están en memoria hasta que se resuelva la so
  * Paralelamente `java -jar SmartestPhone-0.0.1-SNAPSHOT.jar`
  * En el buscador del host `https://192.168.33.10:9090/SmartestPhone`
  
- ## Fase 4
+## Fase 4
  
- ### Diagrama de clases y templates
+### Diagrama de clases y templates
 ![diagClasesTemplates](https://i.imgur.com/9GT2l8w.jpg)
 Azul = Controladores; 
 Rosa = Templates; 
